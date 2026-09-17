@@ -1,0 +1,129 @@
+mode_id: chalkboard_study_notes
+label: "黒板・チョーク学習ノート（高密度・暗記重視）"
+created: 2026-07-10
+source: "運用者提供サンプル7件目（危険物取扱者乙4試験対策の黒板風スライド4枚）"
+
+taste: 黒板・手書きチョーク風、色を機能として使う高密度な整理ノート風
+
+base: null   # 黒板グリーン×チョークカラーで、運用者の主力ブランドとは系統が全く異なる
+
+render_target: html_claude_design   # 表・図・数値の正確さが優先される。チョークの粒状感より情報の正確な制御を優先し、生成任せにしない
+
+overrides:
+  color_emphasis: >
+    地は黒板グリーン(board_green)。文字は白(chalk_white)を基本とし、
+    強調に応じてチョークカラー（黄=最重要語・マーカー下線、ピンク=チェック/手描き
+    スタンプ/コールアウト枠、水色=区切り線・表のヘッダー、赤=絶対に外せない警告）
+    を使い分ける、という「色ごとに役割が決まっている」機能色システムが特徴。
+    他モードと違い、色は雰囲気ではなく完全に情報の意味づけに使う。
+  typography: >
+    チョークで書いたようなラフな質感のフォント（手書き風、やや歪みのある
+    ストローク）を全文字に使う。見出し・本文・注釈まですべて同一系統の
+    チョーク書体で統一し、書体を変えず「色と太さ」だけで階層を作る。
+  icon_style: >
+    chalk_iconのみを使う。白/水色の線画に軽いクロスハッチングの陰影を
+    つけた、手描きスケッチ風のシンプルなイラスト（内容に対応した具体物）。
+  copy_style: >
+    断定的な暗記フレーズ、語呂合わせ的な言い回し、「なぜ？」の問いと答えを
+    対にしたcallout_box、絶対に外せない警告をwarning_textで強く言い切る、
+    という覚えやすさ重視の文体。
+  element_density: >
+    他モードと異なり密度は「高い」がデフォルト。1区画に見出し+本文/表/図の
+    セットを複数並べるのが基本で、3〜6要素ルールは適用しない（意図的に
+    高密度）。ただし1区画内で詰め込みすぎず、区画分割で情報を整理することで
+    見やすさを保つ。
+
+composition:
+  heading: "marker_underline_heading（白の太字見出し＋黄色マーカーの下線）。画面を分割する場合は各区画に1つずつ"
+  body_text: "chalk_whiteのゴシック段落。区画内に収める"
+  list: "check_item（チェックボックス付きの並列項目）"
+  comparison_2_or_more: "quadrant_dividerで区画を作り、区画ごとに独立した情報ブロック（表・図・リスト）を対比配置する"
+  table_or_data: "ruled_table。特に重要な行はhighlight_row（黄色マーカー帯）で強調"
+  summary_statement: "warning_text（絶対に外せない一言、赤の太字＋下線）、または締めの一言はstarburst_emphasis（効果線付きの黄色大文字）"
+  background: "chalkboard_bg（黒板グリーンの地）＋chalk_tray_footer（下端固定装飾）"
+
+palette:
+  board_green: "#1e3d2f"        # 黒板の地
+  chalk_white: "#f5f3ea"         # 基本の文字・線
+  chalk_yellow: "#f2d43c"        # 最重要語・マーカー下線・警告以外の強調
+  chalk_pink: "#e8399e"          # チェックマーク・手描きスタンプ・コールアウト枠
+  chalk_cyan: "#7fd6e0"          # 区切り線・表のヘッダー・アイコンの線
+  chalk_red: "#e4392f"           # 絶対に外せない警告・危険を表す語
+  wood_brown: "#6b4a2e"          # 下端のチョークトレイ
+
+components:
+  chalkboard_bg:
+    description: >
+      board_greenの地に、木目・チョークの粉のような細かいノイズ/グレインの
+      テクスチャを薄くのせる（塗りムラを感じさせる程度、主張しすぎない）。
+  chalk_tray_footer:
+    description: >
+      画面下端・左寄りに、木製のチョークホルダー（wood_brown）と、その右に
+      白・赤・青・黄のチョーク4本を横並びに描く。全画面共通の固定装飾で、
+      内容とは無関係。
+  marker_underline_heading:
+    description: >
+      chalk_whiteの太字見出し（左揃え）の直下に、chalk_yellowの
+      ラフな二重ストローク（マーカーで一気に引いたような、少しかすれた
+      不均一な線）を下線として引く。
+  quadrant_divider:
+    description: >
+      画面をchalk_cyanの細い線（水平・垂直、必要に応じて片方のみ）で
+      2〜4分割し、区画ごとに独立した情報ブロックを作る。線はチョークで
+      引いたような若干の揺らぎを持たせてよい。
+  check_item:
+    description: >
+      chalk_whiteの正方形アウトラインのチェックボックス＋chalk_pinkの
+      チェックマーク、右にchalk_whiteの太字ラベル。3項目前後を縦積み。
+  ruled_table:
+    description: >
+      chalk_whiteの罫線のみのシンプルな表。ヘッダー行や特に重要な行には
+      chalk_cyanの罫線、または該当行の背後にchalk_yellowの半透明の
+      マーカー帯（highlight_row）を敷いて注目させる。
+  hand_drawn_stamp:
+    description: >
+      少し傾いた円をchalk_pinkのマーカーで手描き風に描き（一周を厳密に
+      閉じない、少し重ね書きしたような線）、中に短い太字のchalk_pink
+      テキストを入れる。目印として使う。
+  chalk_icon:
+    description: >
+      内容に合う具体物を、chalk_whiteまたはchalk_cyanの線画＋軽い
+      クロスハッチング陰影で描くスケッチ風アイコン。装飾アイコンではなく
+      内容に対応した実物イラストとして使う。
+  radiating_relation_diagram:
+    description: >
+      中央に白アウトラインの矩形ラベルボックスを置き、そこから太めの矢印
+      （chalk_white/chalk_yellow、チョークで描いたようなややラフな輪郭）を
+      複数方向に伸ばして、先端にchalk_icon＋ラベルを配置する関係図。
+      各矢印にはchalk_yellowの数値・キーワードラベルを添え、その下に小さく
+      補足の注釈を添えてよい。
+  callout_box:
+    description: >
+      角丸の矩形アウトライン（chalk_pinkまたはchalk_red）で囲んだボックス。
+      内部に電球等の小アイコン＋太字の問い（「なぜ？」）＋答えの説明文を
+      1〜2行で入れる。
+  warning_text:
+    description: >
+      chalk_redの太字テキストで、絶対に外せない注意事項を強く言い切る。
+      chalk_redのラフな下線を添えることが多い。
+  inline_color_code:
+    description: >
+      文中の色名語を、地の文字色（chalk_white）とは別に、その色名に対応する
+      チョークカラーで実際に着色して埋め込む（分類・対応関係をそのまま視覚化する）。
+  starburst_emphasis:
+    description: >
+      chalk_yellowの大きな太字テキストの周囲に、放射状に伸びる短い白/黄の
+      線（マンガの「効果線」のような表現）を添え、締めの一言を強調する。
+  process_flow_boxes:
+    description: >
+      白アウトラインの角丸矩形を横一列に並べ、間をchalk_yellowの太い
+      シェブロン矢印でつなぐ手順フロー。特に注目させたい1つのボックスだけ
+      chalk_pinkの手描き風の丸で囲ってよい。直後にwarning_textを添えることが多い。
+
+notes: >
+  他の6モードは「余白・情報の抑制」か「特定の配色ムード」を軸にしていたが、
+  このモードは唯一「色を完全に機能色として使い、高密度でも見やすくする」
+  設計思想を持つ。もとになったサンプルは資格試験対策コンテンツだったが、
+  compositionは内容の形状（見出し・チェックリスト・表・関係図・警告文）ベースで
+  一般化してあるため、暗記・要点整理が要る内容であれば用途を問わず適用できる。
+  confirm/chalkboard_study_notes.htmlが参照実装。

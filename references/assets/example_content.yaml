@@ -1,0 +1,83 @@
+## dynamic_tech_glow モード + render_dynamic_tech_glow_pptx.py の入力サンプル
+## （汎用のダミー内容。実案件のデータは含まない）
+##
+## 使い方:
+##   1. このファイルを content.yaml としてコピーし、pptx_assets/ を同階層に置く
+##      （pptx_assets/glow_divider.png, center_graphic.png は同フォルダのものを流用可）
+##   2. python render_dynamic_tech_glow_pptx.py <このファイルのあるフォルダ>
+##   3. slides.pptx が生成される
+##
+## shapeの種類は modes/dynamic_tech_glow.yaml の composition と対応する:
+##   heading / body_text / list(2件=対比, 3-4件=カード列) / comparison_2 /
+##   table_or_data / summary_statement
+
+deck:
+  title: "サンプル：新サービス紹介デッキ"
+  source: "example_content.yaml（ダミー内容）"
+
+slides:
+  # 1. 表紙
+  - blocks:
+      - shape: heading
+        text: "サンプル：新サービス紹介デッキ"
+      - shape: body_text
+        text: "dynamic_tech_glowモードのPPTX化サンプル"
+
+  # 2. 課題提起（3項目カード列）
+  - blocks:
+      - shape: heading
+        text: "よくある3つの課題"
+      - shape: list
+        label: "課題A"
+        items:
+          - "毎回ゼロから作業している"
+          - "属人化して引き継げない"
+      - shape: list
+        label: "課題B"
+        items:
+          - "品質にばらつきが出る"
+          - "確認に時間がかかる"
+      - shape: list
+        label: "課題C"
+        items:
+          - "改善が積み上がらない"
+          - "同じ失敗を繰り返す"
+      - shape: summary_statement
+        text: "**仕組み化**できていないことが、時間を溶かす一番の原因"
+
+  # 3. Before/After 対比
+  - blocks:
+      - shape: heading
+        text: "導入前と導入後の違い"
+      - shape: comparison_2
+        columns:
+          - label: "導入前"
+            items:
+              - "都度ゼロから検討"
+              - "担当者ごとに品質が変わる"
+              - "ノウハウが残らない"
+          - label: "導入後"
+            items:
+              - "型に沿って進めるだけ"
+              - "誰が担当しても一定品質"
+              - "改善がテンプレに蓄積される"
+
+  # 4. 比較表
+  - blocks:
+      - shape: heading
+        text: "プラン比較"
+      - shape: table_or_data
+        headers: ["プラン", "対象", "特徴", "こんな人に"]
+        rows:
+          - ["ライト", "個人", "最小構成で開始", "まず試したい方"]
+          - ["スタンダード", "チーム", "運用サポート付き", "定着させたい方"]
+          - ["プロ", "組織", "カスタマイズ可能", "本格運用したい方"]
+
+  # 5. まとめ
+  - blocks:
+      - shape: heading
+        text: "まとめ"
+      - shape: body_text
+        text: "仕組み化は一度作れば資産になる。**小さく始めて、型として残す**ことが継続の鍵。"
+      - shape: summary_statement
+        text: "次の一歩は、いちばん頻度の高い作業から型にすること"

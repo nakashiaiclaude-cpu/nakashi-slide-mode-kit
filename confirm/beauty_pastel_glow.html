@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>beauty_pastel_glow confirm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&family=Dancing+Script:wght@600&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; font-family:'Noto Sans JP', sans-serif; }
+  .stage { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; }
+  .slide {
+    width:1280px; height:720px; flex:none; position:relative; overflow:hidden;
+    background:
+      radial-gradient(circle at 15% 20%, #d8cdef 0%, transparent 45%),
+      radial-gradient(circle at 75% 15%, #f3d6e0 0%, transparent 50%),
+      radial-gradient(circle at 60% 80%, #cfe0f0 0%, transparent 55%),
+      radial-gradient(circle at 10% 85%, #e3d6ee 0%, transparent 50%),
+      #e9e3f2;
+    box-sizing:border-box;
+  }
+  .eyebrow { position:absolute; left:70px; top:64px; font-size:15px; letter-spacing:5px; color:#6b6b7a; font-weight:700; }
+
+  .badges { position:absolute; left:70px; top:130px; display:flex; gap:18px; }
+  .badge { width:170px; height:170px; border-radius:50%; position:relative;
+    background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95), rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.15) 70%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  }
+  .ribbon { background:#e8698f; color:#fff; font-weight:800; font-size:15px; padding:6px 14px; margin-bottom:8px; }
+  .badge .value { font-size:32px; font-weight:900; color:#3a3a45; }
+
+  .headline { position:absolute; left:70px; top:340px; }
+  .headline .display { font-family:'Noto Serif JP', serif; font-weight:600; font-size:48px; color:#8b87b0; line-height:1.25; margin:0; }
+  .headline .script { font-family:'Dancing Script', cursive; font-size:28px; color:#8b87b0; margin-top:6px; }
+
+  .tags { position:absolute; left:70px; top:560px; display:flex; gap:16px; }
+  .tag { background:#fff; border:1.5px solid #cfcbe0; color:#4a4a55; font-weight:700; font-size:16px; padding:10px 26px; border-radius:999px; }
+
+  .footer { position:absolute; left:0; bottom:0; width:100%; height:48px; background:#8783ab;
+    display:flex; align-items:center; justify-content:center; }
+  .footer span { color:#fff; font-size:14px; letter-spacing:4px; font-weight:700; }
+</style>
+</head>
+<body>
+ <div class="stage">
+  <div class="slide">
+    <div class="eyebrow">WHERE SLIDES BEGIN.</div>
+    <div class="badges">
+      <div class="badge"><div class="ribbon">ブランド</div><div class="value">統一</div></div>
+      <div class="badge"><div class="ribbon">モード</div><div class="value">選定</div></div>
+    </div>
+    <div class="headline">
+      <p class="display">ブランド名</p>
+      <p class="display">サンプル資料タイトル</p>
+      <div class="script">Where slides begin.</div>
+    </div>
+    <div class="tags">
+      <div class="tag">配色</div>
+      <div class="tag">レイアウト</div>
+      <div class="tag">書体</div>
+    </div>
+    <div class="footer"><span>ブランド名</span></div>
+  </div>
+ </div>
+</body>
+</html>

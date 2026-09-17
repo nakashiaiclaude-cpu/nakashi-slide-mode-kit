@@ -1,0 +1,78 @@
+mode_id: editorial_magazine
+label: "エディトリアル雑誌風（シャープなグリッド）"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の8件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/editorial_magazine.png参照）"
+
+taste: 雑誌のエディトリアルデザイン・シャープな非対称グリッド   # 2026年トレンドの「太字見出し×静かな本文」を極端に振り切った系統
+
+base: null   # 白黒基調＋赤1色の差し色・非対称グリッドは運用者の主力ブランド（紺×オレンジのカードベース）と系統が異なる
+
+render_target: html_claude_design   # 細い罫線・タイポグラフィのグリッド構造は情報の正確な配置が命でCSS/SVGでの直接制御が向く
+
+overrides:
+  color_emphasis: >
+    白(page_white)を基調に、黒(ink_black)の細い罫線で画面を非対称な
+    グリッドに区切る。差し色として鮮やかな赤(accent_red)を全体の一部の
+    文字・小さな図形にのみ極少量使う（10%未満に抑える。多用すると
+    「雑誌」ではなく「警告」に見えるため厳守）。
+  typography: >
+    見出しは非常に太いゴシック体（Black級）を大きく使い、画面の一角に
+    強く配置する。本文はレギュラーウェイトの小さめの文字で、見出しとの
+    サイズ差を極端に付けることで「太字見出し×静かな本文」のコントラストを
+    強調する。
+  icon_style: >
+    アイコンは使わない。赤の小さな四角・点などの最小限の図形記号のみを
+    見出し語の強調や区画の目印として使う。
+  copy_style: >
+    見出しは短い体言止め。本文は簡潔な説明文。装飾的な言い回しは避け、
+    情報の密度と余白の対比で魅せる。
+  element_density: >
+    要素数は3〜5個。非対称グリッドの区画は多くても4分割程度に留め、
+    細かく割りすぎない。
+
+composition:
+  heading: "grid_heading（画面の一角に大きく配置する極太見出し。文字の一部をaccent_redで強調）"
+  body_text: "ink_blackの小さめレギュラー段落。hairline_gridで区切られた区画内に収める"
+  list: "hairline_gridで区切った縦または横の小区画に、ink_blackの細い文字で項目を並べる。1項目にaccent_redの小さな四角の目印を添えてよい"
+  comparison_2: "hairline_gridで画面を左右非対称に分割し、左側に見出し、右側に区画リストを配置して対比構造を作る"
+  table_or_data: "hairline_gridの区画をそのまま簡易な表として使う。強調したい数値のみaccent_redにする"
+  summary_statement: "footer_rule（画面下部のink_blackの細い横線）の下に小さめの黒文字でまとめの一文を配置"
+  background: "無地のpage_white。装飾・グラデーションは一切使わない。hairline_gridの罫線のみで構造を作る"
+
+palette:
+  page_white: "#ffffff"     # 地の背景。唯一の背景色
+  ink_black: "#141414"      # 見出し・本文・罫線の基本色
+  accent_red: "#d81e2c"     # 差し色。全体の10%未満に抑える
+
+components:
+  grid_heading:
+    description: >
+      画面の一角（左側等）に大きく配置する、ink_blackの非常に太いゴシック
+      体の見出し。複数行に分けて縦に積んでもよい。文字のうち強調したい
+      一部（1〜2文字程度）のみaccent_redで塗る。
+  hairline_grid:
+    description: >
+      ink_blackの1px程度の細い罫線で画面を非対称なグリッドに区切る部品。
+      左右分割・上下分割・格子状の分割いずれでもよいが、均等割りにせず
+      「大きな区画＋小さな区画群」の非対称な比率にする（雑誌のレイアウトの
+      特徴）。
+  red_mark:
+    description: >
+      accent_redの小さな正方形または短い罫線。強調したい項目の頭に
+      1箇所だけ添える目印。多用しない（1スライド1〜2箇所まで）。
+  footer_rule:
+    description: >
+      画面下部に引く、ink_blackの細い横線。直後に小さめの黒文字で
+      まとめの一文を配置する。
+
+notes: >
+  既存7モードのcorporate_blue_standard（単色ブルー・オーソドックス）とは
+  「フラットで写真に依存しない」という点で近いが、本モードは非対称グリッド
+  ＋極太タイポグラフィ＋赤の差し色という雑誌的な「崩し」が核で、
+  corporate_blueの均整の取れた標準レイアウトとは明確に別系統。minimal_mono
+  （新規追加、彩度ゼロ・装飾なしの引き算）とも白黒という点で近いが、本モードは
+  赤の差し色と非対称グリッドという「意図的な構造の主張」を持つ点で
+  minimal_monoの「何も足さない」思想とは別軸。confirm/editorial_magazine.png
+  はChatGPT(GPT-Image)生成のサンプルスライド（内容は「サンプル資料タイトル」の
+  汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うための
+  コスト効率判断）を参照実装として使う。

@@ -1,0 +1,76 @@
+modes:
+  - id: calm_natural_photobg
+    label: "静か・ナチュラル・写真ブラー背景"
+    file: modes/calm_natural_photobg.yaml
+    tags: [ナチュラル, 低彩度, 写真ブラー, セリフ見出し, 静か]
+    render_target: html_claude_design   # 窓辺のぼかし写真はClaude Design側で用意する素材で代替できる
+  - id: dynamic_tech_glow
+    label: "先進的・ダイナミック（紺×オレンジ グロー訴求）"
+    file: modes/dynamic_tech_glow.yaml
+    tags: [紺×オレンジ, グロー, テック感, 対比構図, ダイナミック]
+    render_target: html_claude_design   # グロー・グラデーションはCSS/SVGで実用十分に再現できると検証済み
+  - id: corporate_blue_standard
+    label: "オーソドックス・信頼感（単色ブルーの標準資料）"
+    file: modes/corporate_blue_standard.yaml
+    tags: [単色ブルー, オーソドックス, 手堅い, フラットデザイン]
+    render_target: html_claude_design   # フラットな図形のみで写真・複雑な質感に依存しない
+  - id: wafu_illustrated
+    label: "和風イラストテーマ（桜×朱色の陽×墨絵シルエット）"
+    file: modes/wafu_illustrated.yaml
+    tags: [和風, イラスト, 桜, 世界観訴求, テーマ性]
+    render_target: notebooklm   # 陽の筆致・桜の繊細さはストック素材の組み合わせでは出せず、生成品質が必要
+  - id: beauty_pastel_glow
+    label: "パステル×写真×グロー統計"
+    file: modes/beauty_pastel_glow.yaml
+    tags: [パステル, 写真訴求, グロー統計, 上品, エレガント]
+    render_target: html_claude_design   # 実写人物写真はClaude Design側で用意する素材で対応できる
+  - id: dark_gold_luxury
+    label: "高級・華やか（ダーク×ゴールドのプレミアム演出）"
+    file: modes/dark_gold_luxury.yaml
+    tags: [高級, プレミアム, ダーク背景, ゴールド, グリッター]
+    render_target: notebooklm   # グリッター/ボケ写真の質感がhtml検証で明らかに弱く、ストック素材でも粒子感の再現が難しい
+  - id: chalkboard_study_notes
+    label: "黒板・チョーク学習ノート（高密度・暗記重視）"
+    file: modes/chalkboard_study_notes.yaml
+    tags: [黒板, チョーク, 高密度, 機能色, 整理ノート風]
+    render_target: html_claude_design   # 表・図・数値の正確さが優先されるため、生成任せにせず直接制御できる方を選ぶ
+  - id: minimal_mono
+    label: "ミニマル白黒モノトーン"
+    file: modes/minimal_mono.yaml
+    tags: [ミニマル, モノトーン, 白黒, 余白, 装飾なし]
+    render_target: html_claude_design   # 彩度ゼロ・フラットな線と余白のみで構成され、直接制御で十分な質が出る
+  - id: pop_vivid_sns
+    label: "ポップ・ビビッド（SNS向け元気なカラー）"
+    file: modes/pop_vivid_sns.yaml
+    tags: [ポップ, ビビッド, SNS映え, 多色, 吹き出し]
+    render_target: html_claude_design   # 吹き出し・ステッカー風の図形はフラットなCSS/SVGで実用十分に再現できる
+  - id: nordic_paper_warm
+    label: "北欧・ペーパー質感（温かみ）"
+    file: modes/nordic_paper_warm.yaml
+    tags: [北欧, 紙質感, 温かみ, 中間色, 線画イラスト]
+    render_target: html_claude_design   # 紙のグレイン・線画イラストはCSS/SVGのテクスチャ表現で実用十分
+  - id: tech_neon_pitch
+    label: "テック・ネオン（ITピッチ向け）"
+    file: modes/tech_neon_pitch.yaml
+    tags: [テック, ネオン, ダーク背景, ピッチ資料, グロー]
+    render_target: html_claude_design   # ネオングロー・グリッド線はCSS/SVGのbox-shadow・blurで実用十分な質感が出る
+  - id: handwritten_notebook
+    label: "手書き風ノート（講座資料向け）"
+    file: modes/handwritten_notebook.yaml
+    tags: [手書き, ノート, 付箋, マーカー, 講座資料]
+    render_target: html_claude_design   # 方眼罫線・付箋・マーカー下線はCSS/SVGで実用十分に再現でき、情報の正確な配置を優先する
+  - id: glassmorphism_saas
+    label: "ガラスモーフィズム（透明感、SaaS系）"
+    file: modes/glassmorphism_saas.yaml
+    tags: [ガラスモーフィズム, 透明感, SaaS, グラデーション, Liquid Glass]
+    render_target: html_claude_design   # backdrop-filter(blur)によるガラス質感はCSS/SVGで実用十分な質が出せると検証済み
+  - id: earth_sustainable
+    label: "アースカラー・サステナブル"
+    file: modes/earth_sustainable.yaml
+    tags: [アースカラー, サステナブル, オーガニック, 中間色, 線画イラスト]
+    render_target: html_claude_design   # 有機的な半円装飾・線画イラストはCSS/SVGで実用十分に再現できる
+  - id: editorial_magazine
+    label: "エディトリアル雑誌風（シャープなグリッド）"
+    file: modes/editorial_magazine.yaml
+    tags: [エディトリアル, 雑誌風, 非対称グリッド, 赤アクセント, タイポグラフィ]
+    render_target: html_claude_design   # 細い罫線・タイポグラフィのグリッド構造は情報の正確な配置が命で直接制御が向く

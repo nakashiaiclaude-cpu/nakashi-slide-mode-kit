@@ -1,0 +1,112 @@
+mode_id: dark_gold_luxury
+label: "高級・華やか（ダーク×ゴールドのプレミアム演出）"
+created: 2026-07-10
+source: "運用者提供サンプル6件目（目次+表紙+Introduction+データスライドの4枚、年末年始テーマの高級感デッキ）"
+
+taste: 高級・華やか・ダーク×ゴールド   # 全モード中唯一のダーク背景系統
+
+base: null   # 黒地×ゴールドで、運用者の主力ブランド（白地×紺×オレンジ）とは系統が全く異なる
+
+render_target: notebooklm   # glitter_bokeh_bgをCSS/SVGで検証したところ質感が単調で弱く、ストック素材の組み合わせでも粒子の煌めき感は再現しにくいため生成品質が必要
+
+overrides:
+  color_emphasis: >
+    地は漆黒(bg_black)。ゴールド(gold_warm/gold_pale)は装飾（グリッター・
+    フレア・スクリプト飾り文字・チャートのバー）にのみ使い、見出し・本文は
+    白（text_white）で高コントラストを作る。色は情報の色分けではなく、
+    「暗闇の中で金が光る」という質感演出に徹する。
+  photo_treatment: >
+    見出し単体・章扉の画面には、金色の粒子が煌めくボケ（bokeh）写真調の
+    テクスチャを全面背景に敷く（glitter_bokeh_bg）。プレーンな内容画面では
+    写真を使わず漆黒の地に留め、代わりにsparkle_flareを数点だけ散らして
+    質感を継続させる。
+  typography: >
+    見出しは太字・コンデンス（字幅を圧縮した）・やや斜体のオールキャップス
+    ゴシック（Oswald/Anton系）を白で使う。すべての見出し役割でこの1書体に
+    統一するのが最大の特徴。加えて、情報性を持たない「ムード演出専用」の
+    ゴールドの筆記体（script_signature）を1〜2箇所だけ添える。本文・キャプションは
+    素直な細字サンセリフの白。
+    【制約】Oswald/Anton系は欧文専用フォントで日本語グリフを持たないため、
+    日本語見出しには適用できずゴシック体にフォールバックする
+    （confirm/dark_gold_luxury.htmlで実証済み）。日本語主体の内容でこのモードを
+    使う場合は、和文の太字ゴシック（Noto Sans JP Black等）で代替する。
+  icon_style: >
+    絵柄アイコンは使わない。代わりにsparkle_flare（レンズフレア・星型の光）と
+    ribbon_doodle（筆致のリボン飾り）のみを装飾として使う。
+  copy_style: >
+    見出しは短い言い切り。script_signatureは意味を持たないムード演出の
+    一言として、1〜2箇所にだけ使う。
+  element_density: >
+    見出し単体・目次はビジュアル（背景テクスチャ）が主役でテキストは少なめ。
+    本文を伴う画面は見出し+本文の2要素＋装飾数点、データを伴う画面は
+    見出し+本文+チャートの3要素で標準。
+
+composition:
+  heading: "condensed_display_heading（コンデンス・イタリック・オールキャップス、白）"
+  body_text: "text_whiteの細字サンセリフ段落"
+  list: "numbered_toc_list（番号+ラベルのプレーンな一覧）"
+  comparison_2: "特定の対比部品は持たない。必要な場合はgold_bar_chartで数値を並べて代用する"
+  table_or_data: "gold_bar_chart（gold系3トーンのバー、白グリッド線・軸ラベル）"
+  summary_statement: "script_signature（意味を持たない一言・掛け声的なムード演出）で締める、または見出しに言い切りを持たせる"
+  background: "見出し単体・目次はglitter_bokeh_bg全面。内容画面は漆黒＋sparkle_flare/ribbon_doodleを数点。frame_accentは任意で1画面程度に"
+
+palette:
+  bg_black: "#0a0a0a"          # 全画面共通の地
+  gold_warm: "#c9a227"          # グリッター・フレア・チャートのバー（濃いめ）
+  gold_pale: "#e8c97a"          # 筆記体・チャートのバー（薄いクリーム寄り）
+  gold_tan: "#a8834a"           # チャートの3本目のバー等、中間トーン
+  text_white: "#ffffff"         # 見出し・本文
+  frame_violet: "#5b3a86"       # frame_accent専用（使用は任意・1画面程度）
+
+components:
+  glitter_bokeh_bg:
+    description: >
+      黒地の上に暖色（ゴールド）のボケ光の粒を大小ランダムに散らした、写真調の
+      グリッター/ボケテクスチャ。片隅に向かって密度・明るさが増し、反対側は
+      漆黒に近づける、というグラデーション状の密度分布にする。
+    render_spec:
+      dots: "直径4-40px程度の円を20-40個、opacity 0.2-0.9でランダムに散らす。大きい粒ほどblur(2-6px)を強めにかけて奥行きを出す"
+      density_gradient: "密度・不透明度を一方向（角）に向けて増やし、反対側は数個の小さな粒のみに絞る"
+  sparkle_flare:
+    description: >
+      レンズフレア風の光条（十字/星型に伸びる光の線）や、輪郭のみの星型
+      （中抜きの多角星）を、漆黒画面の隅に1〜3点だけ控えめに配置する。
+      情報とは無関係な「質感の余韻」としての装飾。
+    render_spec:
+      cross_flare: "中心から4方向に伸びる細い光の線（gold_pale、中心ほど明るく端でフェード）"
+      outline_star: "6-8方の中抜き星型、stroke幅2-3px、gold_warm"
+  ribbon_doodle:
+    description: >
+      金色の筆致で描いたような、緩くループするリボン/スワッシュの一筆書き
+      装飾。四隅のいずれかに1つだけ、控えめなサイズで置く。
+  script_signature:
+    description: >
+      情報性を持たない、ゴールドの筆記体（cursive/brush script）による
+      短い一言・掛け声、またはそれに準じる装飾的なスワッシュ。ページの主役には
+      せず、余白の一角に控えめに1〜2箇所だけ置く「ムードの署名」。
+  numbered_toc_list:
+    description: >
+      白の細字サンセリフで「01 - ラベル」形式の項目を縦に3-5個、左揃え・
+      行間広め（1.6-2em）で並べる。番号にも装飾（バッジ等）はつけない、
+      プレーンな一覧。
+  condensed_display_heading:
+    description: >
+      太字・字幅圧縮・やや斜体のオールキャップスゴシック（Oswald/Anton系）。
+      すべての見出し役割をこの1書体で統一する。色は常にtext_white。
+  frame_accent:
+    description: >
+      画面全体を囲む、幅1-2px程度の細い縁取り（frame_violet）。使用は任意で、
+      章扉的な画面にだけ差し色として添える程度に留める。
+  gold_bar_chart:
+    description: >
+      チャートの配色をgold_warm/gold_pale/gold_tanの3トーンに統一し、
+      グリッド線・軸ラベルは白の細線/細字にする。チャート自体にタイトルは
+      置かず、見出し側に語らせる。凡例は軸ラベルで代替してよい。
+
+notes: >
+  全モード中で唯一のダーク背景系統。glitter_bokeh_bg（写真調の密なテクスチャ、
+  見出し単体・目次向け）とsparkle_flare（数点だけの控えめな装飾、内容画面向け）
+  は役割が異なるため混在させず使い分ける。condensed_display_headingの統一
+  書体運用がこのモードのアイデンティティの核。もとになったサンプルは年末年始
+  イベントのテーマだったが、compositionは内容の形状ベースで一般化してあるため
+  用途を問わず適用できる。confirm/dark_gold_luxury.html（見出し単体）が参照実装。

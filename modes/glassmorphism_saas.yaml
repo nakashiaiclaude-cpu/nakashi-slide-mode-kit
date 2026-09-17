@@ -1,0 +1,76 @@
+mode_id: glassmorphism_saas
+label: "ガラスモーフィズム（透明感、SaaS系）"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の6件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/glassmorphism_saas.png参照）"
+
+taste: すりガラスの透明感・SaaSプロダクトUI風の洗練   # 2026年トレンドの「Liquid Glass」を反映した系統
+
+base: null   # 青紫×ピンクのぼかしグラデーション×半透明ガラスは運用者の主力ブランド（紺×オレンジ、フラットな地）と系統が異なる
+
+render_target: html_claude_design   # backdrop-filter(blur)・半透明レイヤーはCSS/SVGで実用十分な質感が出せると検証済み
+
+overrides:
+  color_emphasis: >
+    背景は青紫(gradient_purple)とピンク(gradient_pink)がにじむように混ざる
+    大きくぼかしたグラデーション。その上に白の半透明(glass_white)の
+    ガラス風カードを重ねる「背景の彩度・前面の透明白」という2層構造が核。
+    文字は白（glass_white系）で統一する。
+  photo_treatment: >
+    写真は使わない。グラデーションのぼかしとガラスの透明質感だけで
+    奥行きを表現する。
+  typography: >
+    見出し・本文ともに白の太字ゴシック体。ガラスカードの上でも読みやすい
+    コントラストを保つため、文字に薄い影を添えてよい。
+  icon_style: >
+    アイコンは最小限にし、使う場合は白の細いラインアイコンをガラスカード
+    内に小さく配置する程度に留める。
+  copy_style: >
+    プロダクトUIのコピーのように簡潔・機能的な言い回し。装飾的な形容詞は
+    避け、機能・利点を端的に述べる。
+  element_density: >
+    要素数は3〜4個。ガラスカードを何層も重ねすぎない（背景の大カード＋
+    中の小カード、の2階層まで）。
+
+composition:
+  heading: "glass_hero_card（画面中央上部の大きな半透明ガラスカード）の中に白の太字見出しを配置"
+  body_text: "白のゴシック段落。glass_chip（小さめのガラスカード）の中に収める"
+  list: "glass_chipを横一列に3〜4個並べる。各chipの縁に細い白の光の線を入れる"
+  comparison_2: "glass_chipを2つ左右に並べ、背景のグラデーションの色味（紫寄り／ピンク寄り）をそれぞれの位置でわずかに変えて対比を出す"
+  table_or_data: "glass_chipの中に数値を白の太字で配置"
+  summary_statement: "glass_footer_bar（画面下部の細長い半透明ガラスの帯、白文字）"
+  background: "gradient_purpleとgradient_pinkが混ざり合う大きくぼかしたグラデーション地"
+
+palette:
+  gradient_purple: "#6a5cf5"    # 背景グラデーションの青紫側
+  gradient_pink: "#f28fd0"      # 背景グラデーションのピンク側
+  glass_white: "#ffffff"        # ガラスカードの文字色・縁の光の線
+  glass_fill: "rgba(255,255,255,0.22)"   # ガラスカードの半透明の塗り
+  glass_border: "rgba(255,255,255,0.55)" # ガラスカードの縁取りの光の線
+
+components:
+  glass_hero_card:
+    description: >
+      画面中央上部に置く、大きめの角丸長方形カード。glass_fillの半透明の
+      白＋backdrop-blurで背景のグラデーションを透かして見せる。縁に
+      glass_borderの細い光の線を入れる。
+    render_spec:
+      blur: "backdrop-filter: blur(18-24px)相当"
+      border: "1.5-2px、glass_borderで囲む。上辺に若干強めのハイライトを添えてよい"
+  glass_chip:
+    description: >
+      glass_hero_cardと同じガラス質感の小さめの角丸カード。中に白文字の
+      短いラベル（＋任意で細い白のラインアイコン）を配置する。3〜4個を
+      横一列に並べるのが基本。
+  glass_footer_bar:
+    description: >
+      画面下部いっぱいに置く、glass_chipと同じガラス質感の細長い帯。
+      中に白文字でまとめの一文を配置する。
+
+notes: >
+  2026年トレンドの「Liquid Glass／Frosted Transparency」を反映した新系統。
+  既存7モードのdynamic_tech_glow（紺×オレンジのグロー、白背景基調）や
+  beauty_pastel_glow（パステル×写真×グロー統計）とは「グロー」という
+  共通点はあるが、本モードは背景そのものがグラデーション＋半透明ガラスの
+  重なりという構造が核で、単色発光のグローとは表現技法が異なる。
+  confirm/glassmorphism_saas.pngはChatGPT(GPT-Image)生成のサンプル
+  スライド（内容は「サンプル資料タイトル」の汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うためのコスト効率判断）を参照実装として使う。

@@ -1,0 +1,105 @@
+mode_id: dynamic_tech_glow
+label: "先進的・ダイナミック（紺×オレンジ グロー訴求）"
+created: 2026-07-10
+source: "運用者提供サンプル2件目（表紙+比較インフォグラフィック+3カードの3枚）"
+
+taste: 先進的・ダイナミック・グロー感   # 静かなナチュラル系とは対極の、勢いとテック感を出す系統
+
+base: null   # 紺×オレンジ配色・角丸カードは運用者の主力ブランドガイドと一致させたい場合、config/brand_guide.mdの値をpaletteに反映して使う。palette側に実値をインラインで持つため外部ファイル参照は必須ではない
+
+render_target: html_claude_design   # グロー・グラデーション・8の字グラフィックはCSS/SVG（blur filter+2パス塗り分け）で実用十分な質感が出ると検証済み
+
+overrides:
+  color_emphasis: >
+    濃紺(navy_text)を見出し・本文の主色、背景は白〜ごく薄いグレーブルー。
+    アクセントのオレンジは本体ブランドより強めに「グロー（発光）」表現込みで使う。
+    2項目を対比させる構図では左＝ブルー/右＝オレンジの2色対比とし、アイコン・
+    チェック・見出しの色もその対比に揃える。
+  typography: >
+    見出しは太字ゴシック（Noto Sans JP Black級、セリフ不使用）で大きく強く。
+    本文は紺系のやや落ち着いた太めゴシック。コマンドラベルのみモノスペース体。
+  icon_style: >
+    丸背景に収めたラインアイコン（警告三角・電球・チェック等）。2項目対比の
+    構図では左右で色（ブルー系/オレンジ系）を変えて役割を区別する。
+  copy_style: >
+    言い切り型の強い見出し＋要点を対比構造で見せるトーン。まとめの一文は
+    highlight_pill内でキーワードのみ太字オレンジにする（強調は1文に1〜2箇所まで）。
+  element_density: >
+    見出し単体のスライドは2要素程度。中央グラフィック＋対比列＋まとめを全部
+    使うヒーロー的な1枚は7〜8要素と多めになるため、根拠・比較を強く見せたい
+    箇所に限定する。カード羅列は3〜4要素で標準。
+
+composition:
+  heading: "glow_dividerを直下に添えた太字ゴシック見出し（中央または左揃え）"
+  body_text: "navy_textのゴシック段落。7〜8要素級の高密度画面ではcommand_chip内に短文で収める"
+  list: "comparison_column（2項目の対比リストとして使う場合）、または3〜4項目の並列にはcard_3col"
+  comparison_2: "center_graphic（中央の象徴グラフィック）を挟んでcomparison_columnを左右対比配置"
+  table_or_data: "card_3colの本文欄、または数値を強く見せたい場合はhighlight_pill内に太字で"
+  summary_statement: "highlight_pill（カプセル型ボックス、キーワードのみ太字オレンジ）"
+  background: "無地の白〜ごく薄いグレーブルー。表紙のみcorner_halftoneを添える"
+
+palette:
+  navy_text: "#1a2233"        # 見出し・本文の基本色。brand_guide.yamlのprimaryと同一（base指定と齟齬がないよう統一）
+  bg: "#fafbfd"                # 地の背景（白〜ごく薄いグレーブルー）
+  accent_orange: "#e8772e"     # 運用者の主力ブランドのアクセントカラーと同系。グロー用途で多用
+  accent_blue: "#2f6fed"       # 対比構図の「対」を作る第2アクセント（このモード限定）
+  chip_bg: "#10182b"           # コマンドチップの背景（黒に近い紺）
+  chip_code_text: "#3ddc84"    # チップ内のコマンドラベル（緑・モノスペース）
+  chip_body_text: "#f5f7fa"    # チップ内の説明文（白）
+  pill_bg: "#fdf0e4"           # まとめピルの背景（薄いオレンジベージュ）
+  card_border: "#1a2233"       # カードの縁取り（紺の細線、塗りなし）。navy_textと同一色
+
+components:
+  glow_divider:
+    description: >
+      見出し直下に必ず1本入れるシグネチャ区切り線。
+    render_spec:
+      line: "幅400-600px・高さ2pxの水平線。navy_textで、両端をグラデーションでフェードアウト"
+      dot: "線の中央に直径14-16pxのaccent_orangeの円を重ねる"
+      glow: "円にbox-shadow二重光彩（0 0 0 5px rgba(232,119,46,0.18) ＋ 0 0 20px 8px rgba(232,119,46,0.35)）"
+  command_chip:
+    description: >
+      短い見出し＋説明文のセットを吹き出し風に見せる部品。中央グラフィックの
+      上端・下端付近に重ねてもよいし、単独で使ってもよい。
+    render_spec:
+      box: "chip_bg・角丸12px・padding 12-18px・幅300px前後。ブルー系の淡い外側グロー(box-shadow)を薄く"
+      text: "1行目=短いラベル（chip_code_text・モノスペース13px）、2行目=白ゴシックの説明文13px・2行まで"
+  comparison_column:
+    description: >
+      2項目を対比させる列。丸背景（片側=薄ブルー#e4ecfd、もう片側=薄オレンジ
+      #fdeade、直径64-72px）のラインアイコン→同系色の太字見出し20-24px→
+      チェックリスト（先頭に色つき丸チェック直径18px・白チェック、本文はnavy_text
+      15px）を縦積み。両側で構造を完全に揃える。
+  center_graphic:
+    description: >
+      2項目を対比させる際、中央に置く象徴グラフィック。ブルーとオレンジ2本の
+      リボン状の帯が絡み合う8の字（無限ループ）。
+    render_spec:
+      structure: "片側の輪（ブルー系グラデーション）ともう片側の輪（オレンジ系グラデーション）を別々のクローズドパスとして描き、中央で交差させる。1本のパスをdasharrayで塗り分けようとすると破綻するため必ず2パスに分ける"
+      glow: "各輪の背面に同じパスを太め（1.7倍）・低opacity（0.35-0.4）・blurフィルタ付きで敷いてグローにする"
+      detail: "輪の上辺に白の細線ハイライト（opacity 0.4-0.55）、交差点に白丸＋オレンジ縁のノード、周囲に小さな白のスパークルを2-4個"
+  highlight_pill:
+    description: >
+      まとめの一文。ほぼ全幅のカプセル型（border-radius 999px）ボックス。
+      pill_bg＋1.5pxのaccent_orange縁取り。左端にオレンジ丸背景の電球アイコン
+      （直径32-36px）。本文はnavy_text 18px、キーワード1〜2箇所のみ太字オレンジ。
+  card_3col:
+    description: >
+      3〜4項目の並列。白背景・card_borderの1.5-2px縁取り（塗りなし）・角丸
+      14-18px。カード上部中央に薄オレンジ丸背景＋オレンジのラインアイコン→
+      太字紺見出し→幅40px前後のオレンジ下線→本文（グレー寄りの紺）。
+  corner_halftone:
+    description: >
+      見出し単体のスライド限定。右上と左下の隅にaccent_orangeのドット柄
+      （radial-gradientの繰り返し、ドット径1.5-2px・間隔16px・opacity 0.3-0.4）を、
+      コーナーから中心へ薄くなるマスクで敷く。控えめな密度で主張させない。
+
+notes: >
+  グロー・パーティクルや無限ループ状のグラフィックは「装飾のみのAIテンプレ感」に
+  寄りやすいため、比較・対比のヒーロー1枚などインパクトを出したい箇所に限定する。
+  glow_dividerは軽量で他モードにも応用しやすい差別化ポイント。
+  もとになったサンプルは製品機能の解説記事だったが、compositionは内容の形状
+  （見出し・対比・カード列・まとめ文）ベースで一般化してあるため、用途を問わず
+  適用できる。confirm/dynamic_tech_glow.html（見出し単体）と
+  confirm/dynamic_tech_glow_comparison_test.html（対比構図の再現検証、グロー版）
+  が参照実装。

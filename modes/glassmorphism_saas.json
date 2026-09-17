@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "mode_id": "glassmorphism_saas",
+    "label": "ガラスモーフィズム（透明感、SaaS系）",
+    "base": null,
+    "render_target": "html_claude_design",
+    "generated_from": "modes/glassmorphism_saas.yaml",
+    "generated_by": "modes/build_mode_json.py",
+    "do_not_edit_directly": true,
+    "role": "コード自動実装がpaletteとrender_specの値だけを読み込む機械可読版。taste・overrides・composition等の解釈情報は同名のYAMLを参照。"
+  },
+  "palette": {
+    "gradient_purple": "#6a5cf5",
+    "gradient_pink": "#f28fd0",
+    "glass_white": "#ffffff",
+    "glass_fill": "rgba(255,255,255,0.22)",
+    "glass_border": "rgba(255,255,255,0.55)"
+  },
+  "components": {
+    "glass_hero_card": {
+      "blur": "backdrop-filter: blur(18-24px)相当",
+      "border": "1.5-2px、glass_borderで囲む。上辺に若干強めのハイライトを添えてよい"
+    }
+  }
+}

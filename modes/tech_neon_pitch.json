@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "mode_id": "tech_neon_pitch",
+    "label": "テック・ネオン（ITピッチ向け）",
+    "base": null,
+    "render_target": "html_claude_design",
+    "generated_from": "modes/tech_neon_pitch.yaml",
+    "generated_by": "modes/build_mode_json.py",
+    "do_not_edit_directly": true,
+    "role": "コード自動実装がpaletteとrender_specの値だけを読み込む機械可読版。taste・overrides・composition等の解釈情報は同名のYAMLを参照。"
+  },
+  "palette": {
+    "deep_navy_bg": "#0a0e1f",
+    "neon_cyan": "#35e0f0",
+    "neon_magenta": "#ff2e9a",
+    "text_white": "#f5f7fa",
+    "grid_line": "#1c2a4a"
+  },
+  "components": {}
+}

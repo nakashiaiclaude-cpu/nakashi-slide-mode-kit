@@ -1,0 +1,96 @@
+mode_id: corporate_blue_standard
+label: "オーソドックス・信頼感（単色ブルーの標準資料）"
+created: 2026-07-10
+source: "運用者提供サンプル3件目（表紙+挨拶+導入フロー+クロージングの4枚）"
+
+taste: オーソドックス・手堅い・単色ブルーの信頼感
+
+base: null   # 単色ブルー・黒本文で、運用者の主力ブランドの紺×オレンジとは系統が異なるため、ロゴ配置ルール以外は適用しない
+
+render_target: html_claude_design   # wave_band・circle_ring_decoration含め全要素がフラットな図形で、写真や複雑な質感に依存しない
+
+overrides:
+  color_emphasis: >
+    単色の鮮やかめ中間ブルー(primary_blue)を見出し・図形・アイコンの唯一の主色に
+    する（第2アクセントは使わない）。白背景（本文黒）と全面ブルーグラデーション
+    背景（文字・カードは白）の2パターンを交互に使う。
+  typography: >
+    見出し・本文ともにボールドなゴシック体（セリフ不使用）。見出しはブルーまたは白、
+    本文は黒または白。ウェイト差で階層を作る標準的なビジネス資料の型。
+  icon_style: >
+    絵柄アイコンはほぼ使わず、丸背景の番号バッジ（01〜04）のみ。装飾は
+    sparkle_label_flourish程度に抑える。ロゴ・ブランドマークの類はこのモードの
+    部品として持たない（下記notes参照）。
+  copy_style: >
+    見出しは体言止め・簡潔。本文は丁寧語のビジネス文。キーワードの色強調は
+    ほぼ行わない落ち着いたトーン。
+  element_density: 3〜6要素。詰め込まない標準的な密度。
+
+composition:
+  heading: "太字ブルー見出し（白背景では中央または左上）、ブルー背景では白の太字見出し。ロゴ・マークは添えない"
+  body_text: "白背景では黒のゴシック段落、ブルー背景では白のゴシック段落"
+  list: "3項目前後の並列にはagenda_pill（ブルー背景時）またはcta_card（白背景時）"
+  comparison_2: "特定の対比部品は持たないため、cta_cardを2枚並べて代用する"
+  table_or_data: "step_card（番号付きの手順・段階を横並びで見せる場合）"
+  summary_statement: "contact_footerの上段ラベル、または見出し直下の短いサブテキスト1行"
+  background: "白背景+下端のwave_band、またはブルー背景+側端のcircle_ring_decoration"
+
+palette:
+  primary_blue: "#2f6fed"       # 見出し・図形・カード文字の主色
+  deep_navy: "#0f2a6b"          # グラデーションの濃い側・縁の細いライン
+  gray_wave: "#d9dde3"          # 波飾りの副次レイヤー
+  black_text: "#1a1a1a"         # 白背景スライドの本文色
+  white: "#ffffff"
+
+components:
+  wave_band:
+    description: >
+      白背景スライド下端の波飾り。画面の隅で使う場合は小さく控えめにする。
+    render_spec:
+      layers: "背面にgray_waveの大きな円弧、前面にprimary_blue→deep_navyグラデーションの円弧を重ねる"
+      edge_line: "ブルー層の上端に沿って2-3px幅のdeep_navyの線を1本"
+  circle_ring_decoration:
+    description: >
+      ブルー背景スライドの左端または右端に重ねる大きなリング装飾。
+    render_spec:
+      ring: "直径がスライド高の1.2-1.5倍の円。塗りなし・stroke幅16-24px・背景よりトーンを変えたブルー・opacity 0.5-0.7"
+      edge_band: "画面端に沿った幅8-14pxのdeep_navyの縦帯を1本添える"
+  agenda_pill:
+    description: >
+      3項目前後の並列リスト。白背景のカプセル型（border-radius 999px、幅は
+      本文エリアの60-70%、高さ56-64px、影なし）を縦に並べる。中央にprimary_blue
+      の太字テキスト1行。ブルー背景の上で使う。
+  step_card:
+    description: >
+      番号つき横並びの手順・段階（3〜4枚）。
+    render_spec:
+      card: "白背景・1.5-2px solid primary_blue・角丸12-16px。内側中央にblack_textの太字ラベル1行"
+      badge: "直径40-48pxの塗りprimary_blue円＋白太字2桁数字。カード左上角に半分かぶせる"
+      arrow: "カード間に小さな塗りブルーの右向き三角"
+  cta_card:
+    description: >
+      3項目前後の並列を白背景の角丸カード（10-14px、カプセルまで丸めない）で
+      見せる版。影なし・中にprimary_blue太字テキスト1-2行。ブルー背景の上で
+      白い浮きカードとして使う。
+  sparkle_label_flourish:
+    description: >
+      短い1行ラベルの左右に添える、点線・スパークル風の小さな手描き風あしらい
+      （10-16px、3-4個の点や短い曲線）。ブルー背景では白。1ラベルにつき左右1組まで。
+  contact_footer:
+    description: >
+      末尾に置く連絡先・締めの情報。小さなラベル行（14-16px・weight 700）→
+      大きな太字の情報（28-34px・weight 900・字間広め）の2段。ブルー背景では白。
+
+notes: >
+  彩度・情報量ともに抑えた、派手な演出より信頼感・手堅さを優先したい場面で
+  選ぶモード。wave_band（白背景用）とcircle_ring_decoration（ブルー背景用）が
+  対の既定背景装飾。第2アクセント色を一切使わない点が他モードとの最重要の
+  差別化ポイント。もとになったサンプルは営業デッキだったが、compositionは
+  内容の形状ベースで一般化してあるため用途を問わず適用できる。
+  ロゴ・ブランドマークはこのモードのcomponentsに含めない：以前logo_lockup
+  （幾何学マーク＋ブランド名）を持たせていたが、NotebookLM経由での生成検証で
+  スライドごとに違うマークが勝手に発明され、デッキ内の統一感が崩れる問題が
+  発生した（2026-07-10、confirm用ではない運用者実践投入時に発覚）。実在の
+  ブランドロゴが必要な場合は、本物のロゴ資産（画像ファイル）をそのまま配置し、
+  マークを新規生成させないこと。
+  confirm/corporate_blue_standard.html（見出し単体）が参照実装。

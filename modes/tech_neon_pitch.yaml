@@ -1,0 +1,78 @@
+mode_id: tech_neon_pitch
+label: "テック・ネオン（ITピッチ向け）"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の4件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/tech_neon_pitch.png参照）"
+
+taste: ダークUI×ネオン発光のスタートアップピッチ感   # 紺×オレンジの「昼のテック感」とは対極の、夜的・サイバーな系統
+
+base: null   # 黒に近いダーク地×シアン/マゼンタのネオンは運用者の主力ブランド（紺×オレンジ、明るい背景基調）と系統が異なる
+
+render_target: html_claude_design   # ネオングロー・グリッド線・ガラス風カードはCSS/SVGのbox-shadow・blurで実用十分な質感が出せる
+
+overrides:
+  color_emphasis: >
+    地は黒に近い深紺(deep_navy_bg)。シアン(neon_cyan)とマゼンタ(neon_magenta)
+    の2色のネオン発光を主役に使い分ける（dynamic_tech_glowの紺×オレンジの
+    グロー1色とは異なる、2色ネオン対比が核）。白文字(text_white)は発光
+    グローと組み合わせて使う。
+  typography: >
+    見出しは白またはneon_cyanの太字ゴシック体。文字自体に薄い発光グローの
+    text-shadowを常時添える。本文もゴシック体で統一する。
+  icon_style: >
+    アイコンは使わず、細いグリッド線・回路（サーキット）風の折れ線・
+    幾何学的なドット装飾で「テック感」を表現する。
+  copy_style: >
+    短く言い切るスタートアップピッチ的なトーン。専門用語を恐れず使ってよい
+    （読み手がテック文脈を想定した層のため）。
+  element_density: >
+    要素数は3〜5個。発光やグリッドが多すぎると視認性が落ちるため、
+    主役級の発光要素（見出し＋帯）は1〜2箇所に絞り、カード内は発光を
+    抑えた縁取りのみにする。
+
+composition:
+  heading: "neon_underline付きの白い太字見出し。文字にごく薄いグローを添える"
+  body_text: "text_whiteのゴシック段落。glass_cardの中に収めることが多い"
+  list: "glass_card（半透明の角丸カード、縁をneon_cyanまたはneon_magentaの発光線で囲む）を横一列に並べる"
+  comparison_2: "glass_cardを2つ並べ、縁の発光色をneon_cyan/neon_magentaで塗り分けて対比させる"
+  table_or_data: "glass_cardの本文欄に数値を白の太字で配置、または細いグリッド線を使った簡易表"
+  summary_statement: "neon_bar（画面下部のneon_magenta発光の細長い帯、白文字）"
+  background: "deep_navy_bgの地に、薄いグリッド線(grid_lines)と隅の回路風の折れ線装飾(circuit_corner)を添える"
+
+palette:
+  deep_navy_bg: "#0a0e1f"     # 地の背景。黒に近い深紺
+  neon_cyan: "#35e0f0"        # 発光アクセントその1
+  neon_magenta: "#ff2e9a"     # 発光アクセントその2
+  text_white: "#f5f7fa"       # 見出し・本文の基本文字色
+  grid_line: "#1c2a4a"        # 背景の薄いグリッド線
+
+components:
+  neon_underline:
+    description: >
+      見出し直下に引く、neon_cyanの太めの発光下線。線の周囲に薄いグローの
+      box-shadowを添える。
+  glass_card:
+    description: >
+      半透明のダークガラス風の角丸カード（背景はdeep_navy_bgよりわずかに
+      明るい半透明）。縁をneon_cyanまたはneon_magentaの1.5-2px発光線で
+      囲み、中にtext_whiteのアイコン風の細い線画1つ＋短いラベルを配置する。
+  neon_bar:
+    description: >
+      画面下部いっぱいに置く、neon_magenta色の発光する細長い帯。中に
+      text_whiteの太字でまとめの一文を配置する。
+  grid_lines:
+    description: >
+      背景全体に薄く敷く、grid_lineの極細の格子線（opacity低め）。
+      主張しすぎない密度に留める。
+  circuit_corner:
+    description: >
+      画面の隅に、回路基板のような直角に折れる細い線＋小さな丸のノードを
+      neon_cyanまたはneon_magentaで描く。1〜2箇所に限定して使う。
+
+notes: >
+  既存7モードのdynamic_tech_glow（紺×オレンジ、明るい背景にグロー1色）とは
+  「ダーク地×2色ネオン」という点で明確に別系統（dynamic_tech_glowは白背景
+  基調、本モードは黒背景基調）。dark_gold_luxury（ダーク×ゴールドの高級感）
+  ともダーク地という点で近いが、本モードはゴールドの質感ではなくシアン×
+  マゼンタの発光・グリッド線で「テック」を表現する点で別系統。
+  confirm/tech_neon_pitch.pngはChatGPT(GPT-Image)生成のサンプルスライド
+  （内容は「サンプル資料タイトル」の汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うためのコスト効率判断）を参照実装として使う。

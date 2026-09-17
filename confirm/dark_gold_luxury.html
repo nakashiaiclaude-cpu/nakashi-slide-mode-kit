@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>dark_gold_luxury confirm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#0a0a0a; }
+  .stage { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; }
+  .slide {
+    width:1280px; height:720px; flex:none; position:relative; overflow:hidden;
+    background:#0a0a0a; font-family:'Noto Sans JP', sans-serif;
+  }
+  .cap { position:absolute; top:56px; left:50%; transform:translateX(-50%);
+    color:#fff; font-size:15px; letter-spacing:3px; font-weight:700; opacity:0.85; }
+  .heading {
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    font-family:'Oswald', sans-serif; font-style:italic; font-weight:700;
+    font-size:96px; letter-spacing:2px; color:#ffffff; text-align:center; white-space:nowrap;
+  }
+  .byline { position:absolute; bottom:64px; left:50%; transform:translateX(-50%);
+    color:#fff; font-size:16px; letter-spacing:2px; font-weight:700; opacity:0.9; }
+  .flare { position:absolute; }
+</style>
+</head>
+<body>
+ <div class="stage">
+  <div class="slide">
+    <svg width="1280" height="720" style="position:absolute;left:0;top:0;">
+      <defs>
+        <radialGradient id="fade" cx="85%" cy="85%" r="75%">
+          <stop offset="0%" stop-color="#3a2a08" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter>
+        <filter id="softer"><feGaussianBlur stdDeviation="4.5"/></filter>
+      </defs>
+      <rect width="1280" height="720" fill="url(#fade)"/>
+      <!-- bokeh particles, denser bottom-right -->
+      <g fill="#e8c97a">
+        <circle cx="1180" cy="650" r="18" opacity="0.85" filter="url(#softer)"/>
+        <circle cx="1080" cy="600" r="10" opacity="0.7" filter="url(#soft)"/>
+        <circle cx="1220" cy="540" r="7" opacity="0.6" filter="url(#soft)"/>
+        <circle cx="1000" cy="680" r="6" opacity="0.55"/>
+        <circle cx="1140" cy="450" r="9" opacity="0.6" filter="url(#soft)"/>
+        <circle cx="960" cy="580" r="4" opacity="0.5"/>
+        <circle cx="1240" cy="380" r="5" opacity="0.45"/>
+        <circle cx="880" cy="660" r="12" opacity="0.5" filter="url(#soft)"/>
+        <circle cx="60" cy="70" r="7" opacity="0.35" filter="url(#soft)"/>
+        <circle cx="140" cy="130" r="3" opacity="0.3"/>
+        <circle cx="1120" cy="90" r="5" opacity="0.4"/>
+      </g>
+      <!-- sparkle flares -->
+      <g stroke="#e8c97a" stroke-width="2" opacity="0.8">
+        <line x1="120" y1="600" x2="120" y2="660" filter="url(#soft)"/>
+        <line x1="90" y1="630" x2="150" y2="630" filter="url(#soft)"/>
+      </g>
+      <polygon points="200,90 206,105 222,105 209,115 214,131 200,121 186,131 191,115 178,105 194,105"
+        fill="none" stroke="#c9a227" stroke-width="2"/>
+    </svg>
+    <div class="cap">SLIDE MODE</div>
+    <div class="heading">ブランド名</div>
+    <div class="byline">サンプル資料タイトル</div>
+  </div>
+ </div>
+</body>
+</html>

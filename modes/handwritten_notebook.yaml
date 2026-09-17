@@ -1,0 +1,80 @@
+mode_id: handwritten_notebook
+label: "手書き風ノート（講座資料向け）"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の5件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/handwritten_notebook.png参照）"
+
+taste: 手書きノートの親しみやすさ・講座感   # chalkboard_study_notes（黒板×チョーク）とは対極の、明るい紙のノート系統
+
+base: null   # クリーム紙×手書きフォント×付箋色は運用者の主力ブランド（紺×オレンジ）と系統が異なる
+
+render_target: html_claude_design   # 方眼罫線・付箋・マーカー下線はCSS/SVGで実用十分に再現でき、情報の正確な配置を優先する
+
+overrides:
+  color_emphasis: >
+    地は白に近い明るいクリーム色の紙(paper_bg)に、薄い水色の方眼罫線
+    (grid_line)を敷く。文字は黒インク(ink_black)を基本とし、強調に
+    オレンジのマーカー(marker_orange)・黄色の付箋(sticky_yellow)・赤ペン
+    (pen_red)・水色の手書き線(pen_blue)を使い分ける。chalkboard_study_notes
+    と違い地が明るい紙のため、色のコントラストは穏やかにする。
+  typography: >
+    見出し・本文・注釈のすべてを手書き風フォントで統一する（ゴシック体は
+    使わない）。ペンで書いたようなラフさを持たせるが、chalkboardより線は
+    整っており「講座ノート」らしい読みやすさを保つ。
+  icon_style: >
+    アイコンは使わず、赤ペンで囲むような手描きの丸・下線・矢印など、
+    「後から書き込んだ」ような手書きの装飾記号だけを使う。
+  copy_style: >
+    講座・セミナーで板書するような、覚えやすい短いフレーズ。「ここ大事」
+    的な強調の書き込みをmarker_orangeやpen_redの装飾と組み合わせる。
+  element_density: >
+    要素数は3〜5個。付箋やマーカーを使いすぎず、1スライドにつき強調の
+    書き込み（丸・下線）は1〜2箇所に留める。
+
+composition:
+  heading: "handwritten_heading（手書き風の黒い見出し文字）の下にmarker_underline（オレンジのマーカー下線）を引く"
+  body_text: "ink_blackの手書き風段落。sticky_noteの中に短文で収めることが多い"
+  list: "sticky_note（少し傾いた黄色の付箋風の四角、中に手書き風の黒文字）を横一列に並べる"
+  comparison_2: "sticky_noteを2つ並べ、片方にpen_red_circle（赤ペンで囲む手描きの丸）を添えて対比・強調する"
+  table_or_data: "sticky_note内に数値を手書き風の太字で配置、またはnotebook_lineの罫線を使った簡易表"
+  summary_statement: "footer_underline（画面下部のpen_blueの手書き風の直線）の下に手書き風の黒文字でまとめの一文を配置"
+  background: "paper_bgの地にgrid_lineの薄い方眼罫線を敷く（chalkboardの黒板グリーンとは対照的な明るい紙）"
+
+palette:
+  paper_bg: "#faf6ec"        # 地の背景。白に近い明るいクリーム紙
+  grid_line: "#bcd4e6"        # 方眼罫線の薄い水色
+  ink_black: "#1c1c1c"        # 見出し・本文・注釈の基本の手書き文字色
+  marker_orange: "#f2933a"    # 見出し下線・強調マーカー
+  sticky_yellow: "#f5d949"    # 付箋の背景色
+  pen_red: "#d63b2f"          # 手描きの丸・強調の赤ペン
+  pen_blue: "#4e93c9"         # 区切り線・下線の手書き風の青ペン
+
+components:
+  handwritten_heading:
+    description: >
+      ink_blackの手書き風フォントで書いた見出し文字。ゴシック体は使わず、
+      ペンで書いたようなラフな線質を持たせる。
+  marker_underline:
+    description: >
+      見出し直下に引く、marker_orangeのラフな二重ストロークの下線
+      （マーカーで一気に引いたような、少しかすれた線）。
+  sticky_note:
+    description: >
+      少し傾いた角丸の付箋風の四角。背景はsticky_yellow、中にink_blackの
+      手書き風の短いラベルを配置する。3つ前後を横一列に並べるのが基本。
+  pen_red_circle:
+    description: >
+      pen_redで手描きした、少し歪んだ丸の囲み線（一周を厳密に閉じない）。
+      強調したい1項目の周りに添える目印として使う。多用しない（1スライド
+      1箇所まで）。
+  footer_underline:
+    description: >
+      画面下部に引く、pen_blueの手書き風の一本線。直後にink_blackの
+      手書き文字でまとめの一言を添える。
+
+notes: >
+  既存7モードのchalkboard_study_notes（黒板グリーン×チョーク、高密度・
+  暗記重視）とは「手書き」という点で近いが、本モードは地が明るい紙で
+  色数も少なく、講座資料の親しみやすいノート感を狙う点で明確に別系統
+  （chalkboardは暗い黒板地×5色チョークの機能色システムが核）。
+  confirm/handwritten_notebook.pngはChatGPT(GPT-Image)生成のサンプル
+  スライド（内容は「サンプル資料タイトル」の汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うためのコスト効率判断）を参照実装として使う。

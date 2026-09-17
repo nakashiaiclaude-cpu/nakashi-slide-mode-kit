@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "mode_id": "beauty_pastel_glow",
+    "label": "パステル×写真×グロー統計",
+    "base": null,
+    "render_target": "html_claude_design",
+    "generated_from": "modes/beauty_pastel_glow.yaml",
+    "generated_by": "modes/build_mode_json.py",
+    "do_not_edit_directly": true,
+    "role": "コード自動実装がpaletteとrender_specの値だけを読み込む機械可読版。taste・overrides・composition等の解釈情報は同名のYAMLを参照。"
+  },
+  "palette": {
+    "bg_stops": {
+      "lavender": "#d8cdef",
+      "blush_pink": "#f3d6e0",
+      "pale_blue": "#cfe0f0",
+      "base": "#e9e3f2"
+    },
+    "display_lavender": "#8b87b0",
+    "accent_pink": "#e8698f",
+    "footer_purple": "#8783ab",
+    "gray_text": "#5a5a5a",
+    "white": "#ffffff"
+  },
+  "components": {
+    "badge_seal": {
+      "sphere": "直径160-200pxの半透明円。radial-gradientで左上に光沢ハイライト、白の内側1pxリング",
+      "ribbon": "accent_pinkの短冊（水平または斜め）＋白太字ラベル15px",
+      "value": "円の下部に太字32-56pxの結果テキスト"
+    },
+    "glow_stat_text": {
+      "text": "accent_pinkまたは白の太字数字・短フレーズ",
+      "glow": "背後に同系色のぼかした発光（text-shadow/box-shadowの多重光彩、ソフトに）"
+    }
+  }
+}

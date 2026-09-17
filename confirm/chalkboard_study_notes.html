@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>chalkboard_study_notes confirm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Kaisei+Decol:wght@700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#1e3d2f; }
+  .stage { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; }
+  .slide {
+    width:1280px; height:720px; flex:none; position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.04), transparent 60%),
+      radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.03), transparent 55%),
+      #1e3d2f;
+    font-family:'Yomogi', cursive; color:#f5f3ea; box-sizing:border-box;
+  }
+  .heading { position:absolute; left:36px; top:26px; font-size:34px; font-weight:700; }
+  .underline { position:absolute; left:34px; top:66px; width:420px; height:8px; }
+  .qdiv-v { position:absolute; left:640px; top:70px; width:2px; height:560px; background:#7fd6e0; opacity:0.7; }
+  .qdiv-h { position:absolute; left:36px; top:350px; width:1210px; height:2px; background:#7fd6e0; opacity:0.7; }
+
+  .checklist { position:absolute; left:40px; top:100px; }
+  .check-item { display:flex; align-items:center; gap:14px; margin-bottom:22px; font-size:28px; font-weight:700; }
+  .box { width:34px; height:34px; border:3px solid #f5f3ea; flex:none; display:flex; align-items:center; justify-content:center; }
+  .box span { color:#e8399e; font-size:26px; font-weight:900; }
+
+  .table { position:absolute; left:680px; top:60px; width:560px; border:2px solid #f5f3ea; font-size:22px; }
+  .table .row { display:flex; border-bottom:1px solid #f5f3ea; }
+  .table .row:last-child { border-bottom:none; }
+  .table .cell { padding:10px 14px; flex:1; border-right:1px solid #7fd6e0; }
+  .table .cell:last-child { border-right:none; }
+  .table .head { background:rgba(127,214,224,0.15); font-weight:700; text-align:center; }
+  .table .hl { background:rgba(242,212,60,0.35); font-weight:700; }
+
+  .stamp {
+    position:absolute; left:400px; top:400px; width:110px; height:110px; border-radius:50%;
+    border:4px solid #e8399e; transform:rotate(-8deg);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    color:#e8399e; font-weight:700; font-size:22px; line-height:1.2;
+  }
+  .quantlist { position:absolute; left:40px; top:390px; font-size:22px; }
+  .quantlist .label { color:#f2d43c; font-weight:700; font-size:26px; margin-bottom:10px; }
+  .quantlist div.item { margin-bottom:8px; }
+  .warn1 { position:absolute; left:40px; top:590px; color:#e4392f; font-weight:700; font-size:26px; }
+
+  .formula { position:absolute; left:680px; top:400px; font-size:30px; font-weight:700; }
+  .formula .ex { color:#f2d43c; margin-top:16px; font-size:26px; }
+  .warn2 { position:absolute; left:680px; top:600px; color:#e4392f; font-weight:700; font-size:28px; }
+
+  .tray { position:absolute; left:20px; bottom:14px; display:flex; align-items:flex-end; gap:10px; }
+  .holder { width:120px; height:34px; background:#6b4a2e; border-radius:4px; position:relative; }
+  .holder::before { content:""; position:absolute; left:38px; top:-14px; width:44px; height:16px; background:#2a2a2a; border-radius:3px 3px 0 0; }
+  .chalk { width:70px; height:14px; border-radius:6px; }
+</style>
+</head>
+<body>
+ <div class="stage">
+  <div class="slide">
+    <div class="heading">ブランド名：スライドモード入門</div>
+    <svg class="underline" viewBox="0 0 420 8"><path d="M2,5 Q100,1 210,5 T418,4" stroke="#f2d43c" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.9"/></svg>
+
+    <div class="qdiv-v"></div>
+    <div class="qdiv-h"></div>
+
+    <div class="checklist">
+      <div class="check-item"><div class="box"><span>&#10003;</span></div>配色を統一</div>
+      <div class="check-item"><div class="box"><span>&#10003;</span></div>レイアウトを再現</div>
+      <div class="check-item"><div class="box"><span>&#10003;</span></div>書体で個性を出す</div>
+    </div>
+
+    <div class="table">
+      <div class="row head"><div class="cell">モードの系統</div></div>
+      <div class="row"><div class="cell">系統1</div><div class="cell">ナチュラル×写真</div></div>
+      <div class="row"><div class="cell">系統2</div><div class="cell">紺×オレンジ グロー</div></div>
+      <div class="row hl"><div class="cell">系統3</div><div class="cell">黒板×チョーク（本モード）</div></div>
+      <div class="row"><div class="cell">系統4</div><div class="cell">ダーク×ゴールド</div></div>
+    </div>
+
+    <div class="stamp">定番<br>設定</div>
+    <div class="quantlist">
+      <div class="label">崩さない数値</div>
+      <div class="item">・配色：3〜5色以内</div>
+      <div class="item">・要素数：3〜6個</div>
+      <div class="item">・ロゴ：右上固定</div>
+    </div>
+    <div class="warn1">崩すと「AIっぽさ」が出る！</div>
+
+    <div class="formula">
+      選び方 ＝ 用途 × 業種 × 相手 × テイスト
+      <div class="ex">例：コスメLP → beauty_pastel_glow</div>
+    </div>
+    <div class="warn2">軸が合わないと逆効果！</div>
+
+    <div class="tray">
+      <div class="holder"></div>
+      <div class="chalk" style="background:#f5f3ea"></div>
+      <div class="chalk" style="background:#e4392f"></div>
+      <div class="chalk" style="background:#7fd6e0"></div>
+      <div class="chalk" style="background:#f2d43c"></div>
+    </div>
+  </div>
+ </div>
+</body>
+</html>

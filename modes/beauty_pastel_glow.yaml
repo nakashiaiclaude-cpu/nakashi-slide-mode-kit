@@ -1,0 +1,105 @@
+mode_id: beauty_pastel_glow
+label: "パステル×写真×グロー統計"
+created: 2026-07-10
+source: "運用者提供サンプル5件目（表紙+悩み提起+訴求+口コミ+実績の5枚、美容/エステ系LP風デッキ）"
+
+taste: 上品・エレガント・写真訴求（パステル×グロー統計で説得力を出す）
+
+base: null   # パステル紫×ピンク×実写人物で、運用者の主力ブランドとは系統が異なる
+
+render_target: html_claude_design   # 実写人物写真(photo_treatment)が核の要素だが、Claude Design側で用意する素材で対応できる。架空人物は生成しない方針
+
+overrides:
+  color_emphasis: >
+    配色は2層構造。地＝ぼかしたパステルグラデーション（bg_stops参照）と
+    くすみラベンダーの上品な見出し。強調＝はっきりしたローズピンク
+    (accent_pink)をリボン・ピル・統計数字だけに使う。ピンクの数字・フレーズには
+    柔らかい発光を添える（dynamic_tech_glowのオレンジ発光と同機能、色はピンクで
+    質感はよりソフト）。
+  photo_treatment: >
+    実写の人物ポートレート（明るく柔らかいライティング）を主要な視覚要素として
+    使う。画面の半分程度を写真が占める使い方、または写真に暗めのトーンを
+    重ねて白文字を載せる使い方の両方を持つ。イラストに頼らず「人の顔」で
+    信頼感を出す点が他モードとの最大の違い。
+  typography: >
+    3階層で使い分ける：①一言フレーズ＝上品な明朝系ディスプレイ書体
+    （display_lavender色、40-56px）②英語の添え書き＝手書き風スクリプト書体
+    （①と同系色、24-30px）③本文・チップ・フッター＝素直なゴシック。
+    英字キャプションは細字・字間広め・小さめ。
+  icon_style: >
+    アイコンは使わず、doodle_accent（手描き風の小さな一筆装飾）を控えめに
+    添える程度。
+  copy_style: >
+    感情に訴える強い言い切りや問いかけの文体を使ってよい（他モードより比重が
+    大きい）。証言・引用を使う場合はspeech_bubble_cardに収める。
+  element_density: >
+    写真主役の画面はテキスト少なめ（2〜3要素）。列挙・証言を見せる画面は
+    3点並列を基本単位とする。
+
+composition:
+  heading: "display_lavenderの明朝系見出し（40-56px）。下にscript_signatureの英字添え書きを重ねてよい"
+  body_text: "gray_textのゴシック段落。写真主役の画面では最小限に留める"
+  list: "pill_tag（短いキーワードの横並び）、または3列の証言・要点にはspeech_bubble_card"
+  comparison_2: "特定の対比部品は持たない。必要な場合はbadge_sealを2つ並べて代用する"
+  table_or_data: "stat_donut_ribbonまたはglow_stat_text（統計・実績数値の強調表示）"
+  summary_statement: "glow_stat_textの発光テキスト、または短い一言をdisplay_lavenderの明朝で"
+  background: "パステルのぼかしグラデーション（bg_stops）。内容スライドではfooter_barで締める"
+
+palette:
+  bg_stops:                      # 地のぼかしグラデーションを構成する色（radial-gradientを多重に重ねる）
+    lavender: "#d8cdef"
+    blush_pink: "#f3d6e0"
+    pale_blue: "#cfe0f0"
+    base: "#e9e3f2"
+  display_lavender: "#8b87b0"   # 上品な一言フレーズの文字色
+  accent_pink: "#e8698f"         # リボン・ピル・統計の強調色
+  footer_purple: "#8783ab"       # 下部フッターバー
+  gray_text: "#5a5a5a"           # 白地スライドの見出し・本文
+  white: "#ffffff"
+
+components:
+  badge_seal:
+    description: >
+      信頼バッジ。2個並べて使うことが多い。
+    render_spec:
+      sphere: "直径160-200pxの半透明円。radial-gradientで左上に光沢ハイライト、白の内側1pxリング"
+      ribbon: "accent_pinkの短冊（水平または斜め）＋白太字ラベル15px"
+      value: "円の下部に太字32-56pxの結果テキスト"
+  pill_tag:
+    description: >
+      白背景・細い縁取り(#cfcbe0系)のカプセル型ピルに2-4文字のキーワード。
+      横に複数並べる。末尾にdoodle_accentを添えてよい。
+  stat_donut_ribbon:
+    description: >
+      統計訴求パーツ。淡いラベンダーの円（一部切り欠きの簡易パイ）＋上に小さな
+      キャプション＋下寄りにaccent_pinkのリボン帯＋大きな太字パーセンテージ
+      （glow_stat_textの発光つき）。
+  glow_stat_text:
+    description: >
+      このモードのシグネチャ装飾。実績・統計を表す数字や短いフレーズに使う。
+    render_spec:
+      text: "accent_pinkまたは白の太字数字・短フレーズ"
+      glow: "背後に同系色のぼかした発光（text-shadow/box-shadowの多重光彩、ソフトに）"
+  speech_bubble_card:
+    description: >
+      証言・引用カード。3列並べるのが基本形。くすみラベンダー〜グレー紫の
+      角丸カード（下部に小さな三角ポインター）＋白文字のテキスト。真下に丸い
+      人物写真（直径120-150px）＋小さな属性キャプション。
+  footer_bar:
+    description: >
+      内容スライド共通の締め。最下部全幅・高さ40-56pxのfooter_purple帯、
+      中央に白抜き・字間広めの小型キャップスでブランド名。
+  caption_label:
+    description: >
+      見出しの上や装飾の脇の一行ラベル。細字・字間広めの英字キャプション、
+      または短い手書き風の添え書き。
+  doodle_accent:
+    description: >
+      手描き風の小さな一筆装飾（花・雫・風の線等）。1要素につき1つまで。
+
+notes: >
+  実写人物写真が核のモード。確認用スライドでは架空の人物写真を生成せず
+  パステルグラデーションのみで代用している。本番ではClaude Design側で用意する
+  実写素材を合成する前提。悩み→根拠→証言→実績、というLP的な構成の骨格は
+  compositionに一般化して落とし込んであり、業種・用途は限定しない。
+  confirm/beauty_pastel_glow.htmlが参照実装。

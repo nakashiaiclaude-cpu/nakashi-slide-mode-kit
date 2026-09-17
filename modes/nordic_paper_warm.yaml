@@ -1,0 +1,83 @@
+mode_id: nordic_paper_warm
+label: "北欧・ペーパー質感（温かみ）"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の3件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/nordic_paper_warm.png参照）"
+
+taste: 北欧デザインの温かみ・紙質感・自然体な優しさ   # 静かだが「冷たい」ではなく「温かい」余白を持つ系統
+
+base: null   # クリーム×テラコッタ×セージの配色は運用者の主力ブランド（紺×オレンジ）と系統が異なる
+
+render_target: html_claude_design   # 紙のグレイン・線画イラストはCSS/SVGのテクスチャ表現で実用十分。写真は使わない
+
+overrides:
+  color_emphasis: >
+    地はクリーム色の紙質感(paper_cream)。テラコッタ(terracotta)・
+    セージグリーン(sage_green)・マスタード(mustard)の3色を要素の背景色
+    として使い分ける「自然の中間色パレット」。ビビッドな原色は使わない。
+  photo_treatment: >
+    写真は使わない。かわりに植物（葉・枝）の細い線画イラストを余白に
+    小さく添え、有機的な質感を補う。
+  typography: >
+    見出しは優しい印象の細め〜レギュラーウェイトのゴシック体（他モードの
+    太字見出しより線が細い）。角を張らせすぎない、手仕事感のある佇まい。
+  icon_style: >
+    leaf_line_icon（葉っぱ等の自然物の細い線画）のみを使う。塗りつぶし
+    アイコンやビビッドな絵文字風アイコンは使わない。
+  copy_style: >
+    落ち着いた、押し付けがましくない言い回し。断定より提案・寄り添いの
+    トーン。
+  element_density: >
+    要素数は3〜4個。余白を広めに取り、要素同士を詰めすぎない「呼吸感」を
+    大事にする。
+
+composition:
+  heading: "paper_card見出し。charcoal_textの細めゴシックで、下に細い波線の飾り罫を添える"
+  body_text: "charcoal_textのレギュラーウェイト段落。paper_card内に収める"
+  list: "leaf_icon_card（角丸の紙カード、上部にleaf_line_iconの丸背景、下に短いラベル）を横一列に並べる"
+  comparison_2: "leaf_icon_cardを2つ並べ、色をterracotta/sage_greenで塗り分けて対比させる"
+  table_or_data: "leaf_icon_cardの本文欄に数値を太字で配置、または簡易な罫線表をcharcoal_textの細線で組む"
+  summary_statement: "footer_band（画面下部のcharcoal色の細長い帯、中にpaper_cream色の文字）"
+  background: "paper_cream地に、四隅へorganic_blob（テラコッタ・セージ・マスタードの半円形の有機的な装飾）とleaf_line_iconの小枝イラストを添える"
+
+palette:
+  paper_cream: "#f5ecdc"      # 地の背景。温かみのある紙色
+  charcoal_text: "#3a3226"    # 見出し・本文・線の基本色
+  terracotta: "#c97b56"       # カード背景色その1
+  sage_green: "#9ca985"       # カード背景色その2
+  mustard: "#d9a441"          # カード背景色その3
+
+components:
+  paper_card:
+    description: >
+      角丸の紙のような質感を持つカード。背景はpaper_creamまたはterracotta/
+      sage_green/mustardのいずれか薄めのトーン。縁に薄いグレインの質感を
+      持たせ、影は控えめ（べったりした影を付けない）。
+  leaf_icon_card:
+    description: >
+      paper_cardの一種。上部中央に丸背景＋leaf_line_iconを置き、下に
+      charcoal_textの短いラベルを配置する。3〜4項目を横一列に並べる
+      際の標準部品。
+  leaf_line_icon:
+    description: >
+      葉・小枝・雫などの自然物を細い線画（塗りつぶさない、charcoal_textの
+      1〜1.5px程度の線）で描くシンプルなアイコン。装飾アイコンではなく、
+      内容に合わせた具体物として使う。
+  organic_blob:
+    description: >
+      画面の隅に置く、正円に近い有機的な半円形の装飾。terracotta・
+      sage_green・mustardのいずれか1色を単色で塗り、輪郭に控えめな線画の
+      葉を1〜2枚添えてよい。四隅のうち1〜2箇所に限定して使う（多用しない）。
+  footer_band:
+    description: >
+      画面下部のcharcoal_text色の細長い帯。中にpaper_cream色の文字で
+      まとめの一文を配置する。
+
+notes: >
+  既存7モードのcalm_natural_photobg（静か・写真ブラー）と「静けさ」の方向性は
+  近いが、本モードは写真を一切使わず紙質感＋線画イラスト＋中間色パレットで
+  差別化する（calm_naturalは写真ブラー背景が核）。wafu_illustrated（和風）
+  とも自然モチーフ・線画という点で近いが、本モードは北欧的な幾何学的余白と
+  クリーム×テラコッタの配色で明確に別系統。confirm/nordic_paper_warm.pngは
+  ChatGPT(GPT-Image)生成のサンプルスライド（内容は「サンプル資料タイトル」の
+  汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うための
+  コスト効率判断）を参照実装として使う。

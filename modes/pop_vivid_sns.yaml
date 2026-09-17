@@ -1,0 +1,77 @@
+mode_id: pop_vivid_sns
+label: "ポップ・ビビッド（SNS向け元気なカラー）"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の2件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/pop_vivid_sns.png参照）"
+
+taste: SNS映えする元気でポップな多色ビビッドカラー   # 「静か」「上品」系とは対極の、賑やかさで惹きつける系統
+
+base: null   # 4色のビビッドカラーを大胆に使う配色は運用者の主力ブランド（紺×オレンジ）と系統が異なる
+
+render_target: html_claude_design   # 吹き出し・ステッカー風の図形はフラットなCSS/SVGで実用十分に再現できる
+
+overrides:
+  color_emphasis: >
+    黄(pop_yellow)・ピンク(pop_pink)・紫(pop_purple)・ミント(pop_mint)の
+    4色を役割固定せず全体に大胆に使い分ける「賑やかしカラー」システム。
+    背景はクリーム色(bg_cream)で、地は必ず明るく保つ（4色が背景に沈まないよう）。
+  typography: >
+    見出しは丸みの強いextra boldのゴシック体（角を立てない）。本文も同系統の
+    丸ゴシックで統一し、シャープな書体は一切使わない。
+  icon_style: >
+    アイコンは使わず、吹き出し（スピーチバブル）・丸いバッジ・星や稲妻の
+    ステッカー風図形で装飾する。図形の輪郭はやや太めの白フチを入れて
+    ステッカーらしさを出す。
+  copy_style: >
+    短い単語＋擬態語的な勢いのあるトーン。「！」等の記号は多用しないが、
+    言葉自体が弾む短文を選ぶ。1スライド1メッセージに絞る。
+  element_density: >
+    要素数は3〜5個。吹き出し・バッジ・装飾ステッカーを画面の四隅に散らして
+    賑やかさを出すが、中央のメッセージが埋もれない密度に留める。
+
+composition:
+  heading: "speech_bubble_heading（大きな吹き出し型の見出し枠）。中の文字はビビッドな2色でグラデーションまたは塗り分け"
+  body_text: "丸ゴシックの短文。sticker_badge内に収めることが多い"
+  list: "sticker_badge（丸背景アイコン付きの吹き出し風バッジ）を横一列または放射状に並べる"
+  comparison_2: "左右で違うビビッドカラーのsticker_badgeを対比配置し、中央に稲妻や矢印ステッカーを挟む"
+  table_or_data: "sticker_badge内に数値を太字で配置。凡例が必要な場合は色ごとに小さな丸チップを添える"
+  summary_statement: "conclusion_ribbon（画面下部の帯またはリボン風の吹き出し、白文字）"
+  background: "bg_creamの明るい地に、四隅へ星・稲妻・水玉などの小さな装飾ステッカーを散らす（corner_stickers）"
+
+palette:
+  pop_yellow: "#ffd93d"     # バッジ・ハイライト用の主要ビビッドカラーその1
+  pop_pink: "#ff5c8a"       # 見出し・吹き出し縁取りに使うビビッドカラーその2
+  pop_purple: "#8b3dff"     # 見出し文字・アクセントに使うビビッドカラーその3
+  pop_mint: "#2fd6a0"       # バッジ・装飾に使うビビッドカラーその4
+  bg_cream: "#fffaf0"       # 地の背景。4色が沈まないよう常に明るく保つ
+  text_white: "#ffffff"     # バッジ・帯の中の文字色
+
+components:
+  speech_bubble_heading:
+    description: >
+      大きな吹き出し型（角丸＋下端に小さな三角の突起）の枠を中央上部に置き、
+      中に太字の見出しを2色（ピンク＋紫等）で塗り分けて配置する。枠の縁は
+      黄色の太いアウトラインで囲む。
+    render_spec:
+      shape: "角丸40-60px程度の吹き出し、下端中央に小さな三角の尻尾"
+      outline: "6-8px程度の太いアウトライン、pop_yellow等の1色で統一"
+  sticker_badge:
+    description: >
+      丸みの強い角丸の小さなバッジ。背景は4色のいずれか1色、中に白いアイコン
+      風の小図形（時計・盾・手のひら等のシンプルな絵文字的形）＋白文字の
+      短いラベルを横並びで入れる。バッジは軽く傾けてステッカー感を出してよい。
+  corner_stickers:
+    description: >
+      画面の四隅または余白に、星・稲妻・水玉・波線などの小さな装飾図形を
+      2-4個散らす。色はpop_yellow/pop_pink/pop_purple/pop_mintのいずれかを
+      使い、密集させすぎず主役の邪魔をしない密度に抑える。
+  conclusion_ribbon:
+    description: >
+      画面下部いっぱいに置く、ビビッドカラー1色（pop_pink等）の帯または
+      リボン風の帯。中に白文字の太字でまとめの一文を配置する。
+
+notes: >
+  既存7モードのbeauty_pastel_glow（パステル×上品）とは彩度・トーンで明確に
+  対極（本モードは高彩度・元気、beautyは低彩度・エレガント）。dynamic_tech_glow
+  （紺×オレンジのグロー訴求）ともビビッド4色 vs 2色対比という点で被らない。
+  confirm/pop_vivid_sns.pngはChatGPT(GPT-Image)生成のサンプルスライド
+  （内容は「サンプル資料タイトル」の汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うためのコスト効率判断）を参照実装として使う。

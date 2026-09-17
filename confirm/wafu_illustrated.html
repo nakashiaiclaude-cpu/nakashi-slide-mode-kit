@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>wafu_illustrated confirm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; background:#fff; overflow:hidden; }
+  .stage { width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; }
+  .slide {
+    width:1280px; height:720px; flex:none; position:relative; overflow:hidden;
+    background:#ffffff; border-top:3px solid #111111; box-sizing:border-box;
+    font-family:'Noto Sans JP', sans-serif;
+  }
+  .textblock { position:absolute; left:430px; top:250px; z-index:5; }
+  .heading { font-family:'Baloo 2', sans-serif; font-weight:800; font-size:78px; color:#8a1c1c; margin:0 0 14px; line-height:1.05; }
+  .subtitle { font-size:18px; letter-spacing:6px; color:#222; font-weight:700; }
+</style>
+</head>
+<body>
+ <div class="stage">
+  <div class="slide">
+    <svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+      <!-- sun -->
+      <path d="M980,10 C1040,0 1120,15 1150,55 C1185,100 1180,170 1140,205 C1095,245 1015,240 980,195 C945,155 940,80 980,10 Z" fill="#8a1c1c"/>
+      <!-- clouds -->
+      <ellipse cx="700" cy="90" rx="55" ry="12" fill="#9a9a9a"/>
+      <ellipse cx="655" cy="95" rx="30" ry="10" fill="#9a9a9a"/>
+      <ellipse cx="420" cy="150" rx="45" ry="10" fill="#9a9a9a"/>
+      <ellipse cx="1000" cy="270" rx="60" ry="12" fill="#9a9a9a"/>
+
+      <!-- mountains -->
+      <path d="M400,650 L520,540 L600,610 L680,520 L800,650 Z" fill="#b9b9b9"/>
+      <path d="M760,650 L900,500 L1040,650 Z" fill="#c7c7c7"/>
+
+      <!-- pagoda silhouette (left) -->
+      <g fill="#111111">
+        <rect x="0" y="470" width="230" height="18" />
+        <rect x="15" y="410" width="200" height="18" />
+        <rect x="30" y="350" width="170" height="18" />
+        <rect x="45" y="290" width="140" height="18" />
+        <rect x="60" y="230" width="110" height="18" />
+        <rect x="75" y="170" width="80" height="18" />
+        <rect x="90" y="470" width="50" height="180" />
+        <rect x="108" y="140" width="14" height="35" />
+        <circle cx="115" cy="130" r="10" />
+      </g>
+      <!-- windows cut-outs -->
+      <g fill="#ffffff">
+        <rect x="100" y="415" width="10" height="10" />
+        <rect x="120" y="415" width="10" height="10" />
+        <rect x="105" y="355" width="10" height="10" />
+        <rect x="125" y="355" width="10" height="10" />
+      </g>
+
+      <!-- torii near sun -->
+      <g fill="#111111">
+        <rect x="960" y="140" width="16" height="90" />
+        <rect x="1090" y="140" width="16" height="90" />
+        <rect x="945" y="120" width="180" height="16" />
+        <rect x="965" y="150" width="140" height="10" />
+      </g>
+
+      <!-- trees bottom -->
+      <g fill="#111111">
+        <circle cx="1120" cy="600" r="55" />
+        <circle cx="1170" cy="620" r="40" />
+        <rect x="1112" y="620" width="16" height="40" />
+      </g>
+      <g fill="#111111">
+        <path d="M0,650 C40,600 120,600 170,650 L0,720 Z" />
+      </g>
+
+      <!-- sakura branch near sun -->
+      <g>
+        <path d="M1080,205 C1070,230 1050,250 1020,260" stroke="#7a5344" stroke-width="3" fill="none"/>
+        <g fill="#f3c6cf">
+          <circle cx="1020" cy="258" r="12"/>
+          <circle cx="1045" cy="240" r="10"/>
+          <circle cx="1065" cy="222" r="9"/>
+          <circle cx="1005" cy="235" r="8"/>
+        </g>
+      </g>
+      <!-- floating petals -->
+      <g fill="#f3c6cf" opacity="0.75">
+        <ellipse cx="60" cy="40" rx="10" ry="7" transform="rotate(30 60 40)"/>
+        <ellipse cx="1230" cy="330" rx="9" ry="6" transform="rotate(-20 1230 330)"/>
+        <ellipse cx="330" cy="600" rx="8" ry="6" transform="rotate(10 330 600)"/>
+      </g>
+
+      <!-- birds -->
+      <g stroke="#111111" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M760,120 q10,-12 20,0 q10,-12 20,0"/>
+        <path d="M800,150 q8,-10 16,0 q8,-10 16,0"/>
+      </g>
+    </svg>
+
+    <div class="textblock">
+      <div class="heading">ブランド名</div>
+      <div class="subtitle">CLAUDECODE × スライドの紹介</div>
+    </div>
+  </div>
+ </div>
+</body>
+</html>

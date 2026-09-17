@@ -1,0 +1,77 @@
+mode_id: earth_sustainable
+label: "アースカラー・サステナブル"
+created: 2026-08-13
+source: "運用者承認の15種拡張（8種追加）の7件目。ChatGPT(GPT-Image)生成サンプル画像を先に作り、そこから逆算してtaste/composition/paletteを定義（confirm/earth_sustainable.png参照）"
+
+taste: アースカラーで表すサステナビリティ・自然体な信頼感   # オーガニック・環境配慮の文脈に馴染む落ち着いた系統
+
+base: null   # サンドベージュ×オリーブ×テラコッタの配色は運用者の主力ブランド（紺×オレンジ）と系統が異なる
+
+render_target: html_claude_design   # 有機的な半円装飾・線画イラストはCSS/SVGで実用十分に再現できる
+
+overrides:
+  color_emphasis: >
+    地は浅いサンドベージュ(sand_bg)。オリーブグリーン(olive_green)・
+    テラコッタ(clay_terracotta)・深いブラウン(deep_brown)の3色を要素の
+    背景色として使い分ける。ビビッドな原色は使わず、すべて彩度を落とした
+    自然由来の色に統一する。
+  photo_treatment: >
+    写真は使わない。葉っぱ・枝などの自然物の細い線画イラストを余白に
+    小さく添える。
+  typography: >
+    見出しは深いブラウン色の太字ゴシック体。本文も同系統のゴシック体で
+    統一する。
+  icon_style: >
+    leaf_line_icon（葉・盾・双葉などの自然や信頼を象徴する具体物の細い
+    線画）のみを使う。塗りつぶしアイコンは使わない。
+  copy_style: >
+    誠実で落ち着いたトーン。環境配慮・持続可能性を連想させる言葉選びを
+    意識するが、特定業種に限定しない汎用的な文体にとどめる。
+  element_density: >
+    要素数は3〜4個。四隅の有機的な装飾は1〜2箇所に絞り、詰め込みすぎない。
+
+composition:
+  heading: "深いブラウン色の太字見出し。周囲にleaf_line_iconの小枝イラストを添えてよい"
+  body_text: "深いブラウン色のゴシック段落。earth_cardの中に収める"
+  list: "earth_card（角丸の四角、上部に丸背景＋leaf_line_icon、下に短いラベル）を横一列に並べる。カード背景色はolive_green/clay_terracotta/sand_bgを使い分ける"
+  comparison_2: "earth_cardを2つ並べ、olive_green/clay_terracottaで塗り分けて対比させる"
+  table_or_data: "earth_cardの本文欄に数値を太字で配置"
+  summary_statement: "footer_band（画面下部のdeep_brown色の細長い帯、中にsand_bg色の文字）"
+  background: "sand_bgの地に、四隅へorganic_corner（オリーブ・テラコッタの半円形の有機的な装飾）とleaf_line_iconの小枝イラストを添える"
+
+palette:
+  sand_bg: "#f0e4cf"          # 地の背景。浅いサンドベージュ
+  olive_green: "#7f8c5a"      # カード背景色その1
+  clay_terracotta: "#c3714b"  # カード背景色その2
+  deep_brown: "#42311f"       # 見出し・footer_bandの基本色
+
+components:
+  earth_card:
+    description: >
+      角丸の四角カード。背景はolive_green/clay_terracotta/sand_bgのいずれか。
+      上部中央に丸背景＋leaf_line_iconを置き、下にdeep_brownまたは白文字の
+      短いラベルを配置する。3〜4項目を横一列に並べるのが基本。
+  leaf_line_icon:
+    description: >
+      葉・双葉・盾などを細い線画（塗りつぶさない、1〜1.5px程度の線）で
+      描くシンプルなアイコン。装飾ではなく内容に対応した具体物として使う。
+  organic_corner:
+    description: >
+      画面の隅に置く、正円に近い有機的な半円形の装飾。olive_greenまたは
+      clay_terracottaの単色で塗り、輪郭にleaf_line_iconの小枝を1〜2本
+      添えてよい。四隅のうち1〜2箇所に限定する。
+  footer_band:
+    description: >
+      画面下部のdeep_brown色の細長い帯。中にsand_bg色の文字でまとめの
+      一文を配置する。
+
+notes: >
+  既存7モードのnordic_paper_warm（新規追加、クリーム×テラコッタ×セージの
+  北欧系）と中間色パレット・線画イラストという手法は近いが、本モードは
+  オリーブグリーン×深いブラウンを主軸にした「土・大地」寄りの配色で、
+  nordicの「紙・北欧インテリア」寄りの配色とは彩度・トーンで区別する
+  （両モードとも並存させる場合はカード配色の重なりに注意し、案件では
+  taste文言で使い分けを明示する）。confirm/earth_sustainable.pngは
+  ChatGPT(GPT-Image)生成のサンプルスライド（内容は「サンプル資料タイトル」の
+  汎用プレースホルダー。商品化パッケージ側confirmと共通画像を使うための
+  コスト効率判断）を参照実装として使う。
