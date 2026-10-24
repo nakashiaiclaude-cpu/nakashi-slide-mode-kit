@@ -37,6 +37,11 @@ description: スライド生成の「見た目の系統（テイスト）」を1
 
 ## 使い方（Claude Codeでの動かし方）
 
+### 0. 相手と準備状況を確かめる
+- **利用者はパソコン操作に慣れていない前提で話す**。専門用語・ファイルの場所（パス）・コマンドを説明なしに出さない。返事は短くし、最後に「次にやること」を1つだけ示す。
+- 作業フォルダの直下に `config/brand_guide.md` がない場合は、資料を作る前に「先にブランドガイドを作りますか（質問に答えるだけで5〜10分）／作らずにモードの配色だけで進めますか」と2択で聞く。作る場合は、配色（3〜5色。色コードではなく色の名前や雰囲気で聞く）・文字の雰囲気・ロゴの置き場所・避けたい表現を1つずつ質問し、`references/brand_guide.template.md` の形に整えて `config/brand_guide.md` に保存する。
+- `config/brand/logo.png` がない場合はロゴなしで進め、完成時に「ロゴを入れたいときは、画像をこのフォルダに入れて教えてください」と一言添える。
+
 ### 1. モードを選ぶ
 - **モードを提案する前に、必ず関連フォルダ（`config/`一式、および作業中のプロジェクト・作業フォルダ）にユーザーが残した過去のテンプレ・サンプルスライド・ブランドナレッジがないか確認する**。見つかった場合は、それを候補選定の材料にする（過去資産のテイストに近いモードを優先候補にする、または「過去資料と近いテイストで続けますか、それとも新しいテイストにしますか」を選択肢に含める）。見つからなければ通常通り`index.yaml`のtasteから提案する。
 - ユーザーがモードを明示した場合（例：「dynamic_tech_glowで」「グロー系で」）はそれを使う。
@@ -54,7 +59,8 @@ description: スライド生成の「見た目の系統（テイスト）」を1
 ### 4. レンダリングする
 - **`render_target: html_claude_design`のモード**：Claude Code自身でHTML/CSS/SVG（またはClaude Design）を組み立てる。色・px単位のレイアウトを正確に制御できるのが強み。既存7種は`confirm/<mode_id>.html`を土台に内容だけ差し替えるのが最も再現性が高い。新規8種は`confirm/<mode_id>.png`（ChatGPT生成のサンプル画像）を見た目の参照にしつつ、`modes/<mode_id>.yaml`のcomponents/paletteの記述通りにHTML/CSS/SVGを組み立てる。
 - **`render_target: notebooklm`のモード**：写真・グリッター・手描き風の質感が要るため、コードで描くよりAI画像生成に任せた方が質が出る。**生成先を「ChatGPT」「NotebookLM」の両方とも選択肢としてユーザーに提示し（いずれもClaude in Chromeでのブラウザ操作で対応可能）、ユーザーが選んだ方を使う**。どちらか一方に固定しない。YAMLのoverridesをそのまま生成指示に含める。
-- **PPTX（編集可能な形）で欲しい場合**：`references/assets/render_dynamic_tech_glow_pptx.py`を参照実装として使う（`dynamic_tech_glow`モード専用の実装例。他モードに転用する場合はcomponents/paletteに合わせて書き換える）。入力は`content.yaml`（スキーマは`references/assets/example_content.yaml`参照）。
+- **PPTX（編集可能な形）で欲しい場合**：`references/assets/render_dynamic_tech_glow_pptx.py`を参照実装として使う（`dynamic_tech_glow`モード専用の実装例。他モードに転用する場合はcomponents/paletteに合わせて書き換える）。入力は`content.yaml`（スキーマは`references/assets/example_content.yaml`参照）。`dynamic_tech_glow`以外のモードでPPTXを頼まれたときは、書き換えに時間がかかることを先に伝え、「PDF（ブラウザの印刷から保存）で足りるか」を確認してから進める。Pythonや追加ライブラリの準備が要る場合は、利用者に1手順ずつ案内する。
+- **作り終えたら**：完成したHTMLの場所を一言で伝え、「ブラウザで開きましょうか」と聞く。開くよう頼まれたら、そのままブラウザで開く。
 
 ### 5. ロゴについて
 - **モードにロゴを新規生成させない**。「幾何学マーク＋社名」のような抽象ロゴをNotebookLM等の生成系レンダラーにかけると、スライドごとに違うマークを勝手に発明してしまい統一感が崩れる（実際に発生した既知の問題）。ロゴは実画像ファイル（`config/brand/logo.png`）をそのまま配置する。
